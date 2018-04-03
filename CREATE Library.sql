@@ -50,22 +50,22 @@ GO
 
 CREATE TABLE book
 (
-	bID int primary key clustered not null,
+	bID int primary key  clustered identity(0,1) not null,
 	ISBN13 char(14) null, -- ex. 978-1484230176  
 	ISBN10 char(10) null, -- ex. 1484230175
 	[name] nvarchar( 60) not null,
 	cover varbinary(max) null,
 	coverType char(10) not null,
-	pubDate date null,
+	pubDate char(4) null,
 	publish nvarchar(40) null,
-	pubCountry char(20) null,
-	department char(2) not null,
-	[language] char(3) not null,
+	pubCountry char(25) null,
+	department char(25) null,
+	[language] char(3) null,
 	genre nvarchar(50) null,
-	[state] int not null, -- book is new, old, worn out and etc
+	[state] int not null,
 	[description] nvarchar(500) null,
 	restriction varchar(30) null, -- expensive, only one example, old and etc.
-	[status] float default(0) not null           -- special for Mikayel
+	[status] float default(0) null           -- special for Mikayel
 )
 go
 
@@ -92,40 +92,56 @@ create table book_state
 	bookType int null, --new, worm out, and etc
 	cordinat1 int null,
 	cordinat2 int null,
-	cordinat3 int null
+	cordinat3 int null,
+	[description] varchar(max) null
 )
 go
 
-IF OBJECT_ID('Library.department', 'U') IS NOT NULL
-  DROP TABLE department
+IF OBJECT_ID('Library.category', 'U') IS NOT NULL
+  DROP TABLE category
 GO
 
-CREATE TABLE department
+CREATE TABLE category
 (
-	[code] char(2) primary key clustered not null, 
-	[name] char( 13) not null, 
-	parentCode char(2) null
+	[code] char(10) primary key clustered not null, 
+	[name] char( 25) not null,
 )
 go
 
-IF OBJECT_ID('Library.authors', 'U') IS NOT NULL
-  DROP TABLE authors
+IF OBJECT_ID('Library.author', 'U') IS NOT NULL
+  DROP TABLE author
 GO
 
-CREATE TABLE authors
+CREATE TABLE author
 (
-	aID int primary key clustered not null, 
+	aID int primary key clustered identity(0,1) not null, 
 	[name] char( 30) not null, 
 	surname char(30) null,
 	middleName char(30) null,
 	country char(3) null,
 	country2 char(3) null,
 	country3 char(3) null,
-	[language] char(3) not null,
+	[language] char(3) null,
 	language2 char(3) null,
 	language3 char(3) null
 )
 go
+
+
+
+if object_id('Library.book_author', 'U') is not null
+  drop table Library.book_author
+go
+
+create table book_author
+(
+	ID int primary key identity(0, 1) not null,
+	bID int not null,
+	aID int not null
+)
+go
+
+
 
 IF OBJECT_ID('Library.operation', 'U') IS NOT NULL
   DROP TABLE operation
@@ -229,5 +245,18 @@ create table login_history
 	uID int primary key not null,
 	startDate datetime2 not null,
 	endDate datetime2 not null
+)
+go
+
+
+
+if object_id('Library.parameters', 'U') is not null
+  drop table Library.[parameters]
+go
+
+create table [parameters]
+(
+	[name] char(10) primary key not null,
+	[value] int null
 )
 go
