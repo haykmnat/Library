@@ -1,0 +1,11 @@
+E:\source\repos\Conn\Library\bin\Debug\Library.exe.config
+E:\source\repos\Conn\Library\bin\Debug\Library.exe
+E:\source\repos\Conn\Library\bin\Debug\Library.pdb
+E:\source\repos\Conn\Library\obj\Debug\Library.csprojResolveAssemblyReference.cache
+E:\source\repos\Conn\Library\obj\Debug\Library.MainForm.resources
+E:\source\repos\Conn\Library\obj\Debug\Library.Properties.Resources.resources
+E:\source\repos\Conn\Library\obj\Debug\Library.csproj.GenerateResource.Cache
+E:\source\repos\Conn\Library\obj\Debug\Library.csproj.CoreCompileInputs.cache
+E:\source\repos\Conn\Library\obj\Debug\Library.exe
+E:\source\repos\Conn\Library\obj\Debug\Library.pdb
+E:\source\repos\Conn\Library\obj\Debug\Library.BookForm.resources
