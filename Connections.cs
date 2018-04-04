@@ -14,6 +14,5 @@ namespace Library
             builder.MaxPoolSize = 10;
             return builder.ConnectionString;
         }
-  
     }
-} 
+}

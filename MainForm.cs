@@ -23,5 +23,15 @@ namespace Library
             form.Show();
         }
 
+        private void bntViewBook_Click(object sender, EventArgs e)
+        {
+            using(var context = new LibContext(LibConnection.GetConnString()))
+            {
+                var tabe = context.books.Select(c => new {Name = c.name, Lang = c.language, Date = c.pubDate }).Distinct();
+                viewBooks.DataSource = tabe;
+                viewBooks.RowHeadersVisible = false;
+                
+            }
+        }
     }
 }
