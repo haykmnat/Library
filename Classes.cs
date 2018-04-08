@@ -16,6 +16,7 @@ namespace Library
         public Table<Book_Author> book_Authors;
         public Table<Language> langs;
         public Table<Category> categories;
+        public Table<readers> readers_;
     }
 
     [Table(Name = "book")]
@@ -107,5 +108,53 @@ namespace Library
         public string code;
         [Column(Name = "name", CanBeNull = false)]
         public string name;
+    }
+
+    [Table(Name = "readers")]
+    public class readers
+    {
+
+        [Column(Name = "rID", CanBeNull = false, IsPrimaryKey = true)]
+        public int rID;
+
+        [Column(Name = "name", CanBeNull = false, IsPrimaryKey = false)]
+        public string name;
+
+        [Column(Name = "surname", CanBeNull = false, IsPrimaryKey = false)]
+        public string surname;
+
+        [Column(Name = "middleName", CanBeNull = true, IsPrimaryKey = false)]
+        public string middleName;
+
+        [Column(Name = "passport", CanBeNull = false, IsPrimaryKey = false)]
+        public string passport;
+
+        [Column(Name = "middleName", CanBeNull = false, IsPrimaryKey = false)]
+        public DateTime birthDate;
+
+        [Column(Name = "openDate", CanBeNull = false, IsPrimaryKey = false)]
+        public DateTime openDate;
+
+        [Column(Name = "closeDate", CanBeNull = true, IsPrimaryKey = false)]
+        public DateTime closeDate;
+
+        [Column(Name = "address", CanBeNull = false, IsPrimaryKey = false)]
+        public string address;
+
+        [Column(Name = "phone", CanBeNull = false, IsPrimaryKey = false)]
+        public string phone;
+
+        /*
+        [rID] int primary key clustered not null, 
+        [name] nvarchar( 30) not null, 
+        surname nvarchar( 30) not null,
+        middleName nvarchar( 30) null,
+        passport char(10) not null,
+        birthDate date not null,
+        openDate date not null, --reader card open date
+        closeDate date null,		--reader card close date
+        [address] nvarchar( 50) not null, 
+        phone varchar( 40) not null -- i mean comma seperated phone numbers listr
+         */
     }
 }

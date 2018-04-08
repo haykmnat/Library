@@ -9,3 +9,15 @@ E:\source\repos\Conn\Library\obj\Debug\Library.csproj.CoreCompileInputs.cache
 E:\source\repos\Conn\Library\obj\Debug\Library.exe
 E:\source\repos\Conn\Library\obj\Debug\Library.pdb
 E:\source\repos\Conn\Library\obj\Debug\Library.BookForm.resources
+C:\Users\Mikayel\source\repos\Library\Library\bin\Debug\Library.exe.config
+C:\Users\Mikayel\source\repos\Library\Library\bin\Debug\Library.exe
+C:\Users\Mikayel\source\repos\Library\Library\bin\Debug\Library.pdb
+C:\Users\Mikayel\source\repos\Library\Library\obj\Debug\Library.BookForm.resources
+C:\Users\Mikayel\source\repos\Library\Library\obj\Debug\Library.MainForm.resources
+C:\Users\Mikayel\source\repos\Library\Library\obj\Debug\Library.Properties.Resources.resources
+C:\Users\Mikayel\source\repos\Library\Library\obj\Debug\Library.csproj.GenerateResource.cache
+C:\Users\Mikayel\source\repos\Library\Library\obj\Debug\Library.csproj.CoreCompileInputs.cache
+C:\Users\Mikayel\source\repos\Library\Library\obj\Debug\Library.exe
+C:\Users\Mikayel\source\repos\Library\Library\obj\Debug\Library.pdb
+C:\Users\Mikayel\source\repos\Library\Library\obj\Debug\Library.Readers.resources
+C:\Users\Mikayel\source\repos\Library\Library\obj\Debug\Library.csprojResolveAssemblyReference.cache

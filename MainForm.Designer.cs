@@ -31,18 +31,17 @@
             this.btnAddBook = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel1 = new LangPanel(0);
+            this.panel2 = new CategoryPanel(0);
             this.viewBooks = new System.Windows.Forms.DataGridView();
             this.bntViewBook = new System.Windows.Forms.Button();
-            panel1 = new LangPanel(0);
-            panel2 = new CategoryPanel(0);
-           // panel2 = new CategoryPanel(0);
-           // panel1 = new LangPanel(0);
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.viewBooks)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAddBook
             // 
-            this.btnAddBook.Location = new System.Drawing.Point(563, 58);
+            this.btnAddBook.Location = new System.Drawing.Point(580, 12);
             this.btnAddBook.Name = "btnAddBook";
             this.btnAddBook.Size = new System.Drawing.Size(75, 23);
             this.btnAddBook.TabIndex = 0;
@@ -68,6 +67,25 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Language";
             // 
+            // viewBooks
+            // 
+            this.viewBooks.AllowUserToOrderColumns = true;
+            this.viewBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.viewBooks.Location = new System.Drawing.Point(48, 13);
+            this.viewBooks.Name = "viewBooks";
+            this.viewBooks.Size = new System.Drawing.Size(396, 220);
+            this.viewBooks.TabIndex = 10;
+            // 
+            // bntViewBook
+            // 
+            this.bntViewBook.Location = new System.Drawing.Point(580, 70);
+            this.bntViewBook.Name = "bntViewBook";
+            this.bntViewBook.Size = new System.Drawing.Size(75, 23);
+            this.bntViewBook.TabIndex = 11;
+            this.bntViewBook.Text = "View Books";
+            this.bntViewBook.UseVisualStyleBackColor = true;
+            this.bntViewBook.Click += new System.EventHandler(this.bntViewBook_Click);
+            // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -84,30 +102,22 @@
             this.panel2.Size = new System.Drawing.Size(165, 196);
             this.panel2.TabIndex = 9;
             // 
-            // viewBooks
+            // button1
             // 
-            this.viewBooks.AllowUserToOrderColumns = true;
-            this.viewBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.viewBooks.Location = new System.Drawing.Point(48, 13);
-            this.viewBooks.Name = "viewBooks";
-            this.viewBooks.Size = new System.Drawing.Size(396, 220);
-            this.viewBooks.TabIndex = 10;
-            // 
-            // bntViewBook
-            // 
-            this.bntViewBook.Location = new System.Drawing.Point(533, 129);
-            this.bntViewBook.Name = "bntViewBook";
-            this.bntViewBook.Size = new System.Drawing.Size(75, 23);
-            this.bntViewBook.TabIndex = 11;
-            this.bntViewBook.Text = "View Books";
-            this.bntViewBook.UseVisualStyleBackColor = true;
-            this.bntViewBook.Click += new System.EventHandler(this.bntViewBook_Click);
+            this.button1.Location = new System.Drawing.Point(580, 41);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "Readers";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button_Readers_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(667, 466);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.bntViewBook);
             this.Controls.Add(this.viewBooks);
             this.Controls.Add(this.panel2);
@@ -132,6 +142,7 @@
         private CategoryPanel panel2;
         private System.Windows.Forms.DataGridView viewBooks;
         private System.Windows.Forms.Button bntViewBook;
+        private System.Windows.Forms.Button button1;
     }
 }
 

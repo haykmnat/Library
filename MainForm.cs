@@ -12,6 +12,8 @@ namespace Library
 {
     public partial class MainForm : Form
     {
+        Library.LibContext context = new LibContext(Library.LibConnection.GetConnString());
+
         public MainForm()
         {
             InitializeComponent();
@@ -24,14 +26,16 @@ namespace Library
         }
 
         private void bntViewBook_Click(object sender, EventArgs e)
+        { 
+            var tabe = context.books.Select(c => new {Name = c.name, Lang = c.language, Date = c.pubDate }).Distinct();
+            viewBooks.DataSource = tabe;
+            viewBooks.RowHeadersVisible = false;      
+        }
+
+        private void button_Readers_Click(object sender, EventArgs e)
         {
-            using(var context = new LibContext(LibConnection.GetConnString()))
-            {
-                var tabe = context.books.Select(c => new {Name = c.name, Lang = c.language, Date = c.pubDate }).Distinct();
-                viewBooks.DataSource = tabe;
-                viewBooks.RowHeadersVisible = false;
-                
-            }
+            Form f = new Readers();
+            f.Show();
         }
     }
 }
