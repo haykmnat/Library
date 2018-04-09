@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookForm));
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tab1 = new System.Windows.Forms.TabPage();
+            this.lbLangName = new System.Windows.Forms.Label();
+            this.lbR = new System.Windows.Forms.Label();
             this.cbCategory = new System.Windows.Forms.ComboBox();
             this.cbLang = new System.Windows.Forms.ComboBox();
             this.lbName = new System.Windows.Forms.Label();
@@ -72,8 +74,6 @@
             this.nadCount = new System.Windows.Forms.NumericUpDown();
             this.lbCount = new System.Windows.Forms.Label();
             this.btnDone = new System.Windows.Forms.Button();
-            this.lbR = new System.Windows.Forms.Label();
-            this.lbLangName = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.tab1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.viewAuthors)).BeginInit();
@@ -120,6 +120,24 @@
             this.tab1.TabIndex = 0;
             this.tab1.Text = "Main";
             this.tab1.UseVisualStyleBackColor = true;
+            // 
+            // lbLangName
+            // 
+            this.lbLangName.AutoSize = true;
+            this.lbLangName.Location = new System.Drawing.Point(237, 148);
+            this.lbLangName.Name = "lbLangName";
+            this.lbLangName.Size = new System.Drawing.Size(0, 17);
+            this.lbLangName.TabIndex = 22;
+            // 
+            // lbR
+            // 
+            this.lbR.AutoSize = true;
+            this.lbR.ForeColor = System.Drawing.Color.Red;
+            this.lbR.Location = new System.Drawing.Point(110, 25);
+            this.lbR.Name = "lbR";
+            this.lbR.Size = new System.Drawing.Size(13, 17);
+            this.lbR.TabIndex = 21;
+            this.lbR.Text = "*";
             // 
             // cbCategory
             // 
@@ -198,7 +216,7 @@
             // 
             this.lbCategory.AutoSize = true;
             this.lbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCategory.Location = new System.Drawing.Point(32, 225);
+            this.lbCategory.Location = new System.Drawing.Point(49, 225);
             this.lbCategory.Name = "lbCategory";
             this.lbCategory.Size = new System.Drawing.Size(65, 17);
             this.lbCategory.TabIndex = 15;
@@ -537,24 +555,6 @@
             this.btnDone.Text = "Done";
             this.btnDone.UseVisualStyleBackColor = true;
             // 
-            // lbR
-            // 
-            this.lbR.AutoSize = true;
-            this.lbR.ForeColor = System.Drawing.Color.Red;
-            this.lbR.Location = new System.Drawing.Point(110, 25);
-            this.lbR.Name = "lbR";
-            this.lbR.Size = new System.Drawing.Size(13, 17);
-            this.lbR.TabIndex = 21;
-            this.lbR.Text = "*";
-            // 
-            // lbLangName
-            // 
-            this.lbLangName.AutoSize = true;
-            this.lbLangName.Location = new System.Drawing.Point(237, 148);
-            this.lbLangName.Name = "lbLangName";
-            this.lbLangName.Size = new System.Drawing.Size(0, 17);
-            this.lbLangName.TabIndex = 22;
-            // 
             // BookForm
             // 
             this.AcceptButton = this.btnAdd;
@@ -635,5 +635,7 @@
         private System.Windows.Forms.Button btnDone;
         private System.Windows.Forms.Label lbR;
         private System.Windows.Forms.Label lbLangName;
+        private LibContext context;
+        private Book book;
     }
 }

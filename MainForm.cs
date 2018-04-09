@@ -26,16 +26,44 @@ namespace Library
         }
 
         private void bntViewBook_Click(object sender, EventArgs e)
-        { 
-            var tabe = context.books.Select(c => new {Name = c.name, Lang = c.language, Date = c.pubDate }).Distinct();
-            viewBooks.DataSource = tabe;
-            viewBooks.RowHeadersVisible = false;      
+        {
+            var f = new BookFilter();
+            f.viewBooks = viewBooks;
+            f.Show();
+
+//             var tabe = context.books.Select(c => new {Name = c.name, Lang = c.language, Date = c.pubDate }).Distinct();
+//             viewBooks.DataSource = tabe;
+//             viewBooks.RowHeadersVisible = false;      
         }
 
         private void button_Readers_Click(object sender, EventArgs e)
         {
             Form f = new Readers();
             f.Show();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            Form f = new BookFilter();
+            f.Show();
+        }
+
+        private void viewBooks_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                ContextMenu conMenu = new ContextMenu();
+                int currentMouseOverRow = viewBooks.HitTest(e.X, e.Y).RowIndex;
+
+                if (currentMouseOverRow >= 0 && viewBooks.Rows[currentMouseOverRow].Selected == true)
+                {
+                    conMenu.MenuItems.Add(new MenuItem("View"));
+                    conMenu.MenuItems.Add(new MenuItem("Process"));
+                }
+
+                conMenu.Show(viewBooks, new Point(e.X, e.Y));
+
+            }
         }
     }
 }

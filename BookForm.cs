@@ -70,13 +70,13 @@ namespace Library
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            bool succsse = true;
+            bool success = true;
             if (tbName.Text.Trim().Equals(""))
             {
                 tbName.BackColor = Color.Tomato;
                 return;
             }
-            using (LibContext context = new LibContext(LibConnection.GetConnString()))
+            using (context = new LibContext(LibConnection.GetConnString()))
             {
                 context.Connection.Open();
                 for (int j = 0; j < nadCount.Value; j ++)
@@ -132,7 +132,7 @@ namespace Library
                     {
                         context.Transaction.Rollback();
                         //context.Connection.Close();
-                        succsse = false;
+                        success = false;
                         MessageBox.Show(this, ex.Message + "\n" + "Original Error: " +
                             ex.InnerException?.Message, "Error",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -141,7 +141,7 @@ namespace Library
                     //context.Connection.Close();
                 }
             }
-            if (succsse)
+            if (success)
                 this.Close();
         }
         private void fillBook_Author(out Book_Author bookAuthor, int bID, int aID)
@@ -192,11 +192,11 @@ namespace Library
         private void cbLang_DropDown(object sender, EventArgs e)
         {
             cbLang.Items.Clear();
-            using(var contex = new LibContext(LibConnection.GetConnString()))
+            using(context = new LibContext(LibConnection.GetConnString()))
             {
                 try
                 {
-                	var langs = contex.langs.Select(l => l.code).ToArray();
+                	var langs = context.langs.Select(l => l.code).ToArray();
                 	cbLang.Items.AddRange(langs);
                 }
                 catch (System.Exception ex)
@@ -210,11 +210,11 @@ namespace Library
 
         private void cbLang_SelectedValueChanged(object sender, EventArgs e)
         {
-            using (var contex = new LibContext(LibConnection.GetConnString()))
+            using (context = new LibContext(LibConnection.GetConnString()))
             {
                 try
                 {
-                    var langs = contex.langs.Where(c=>c.code == cbLang.Text).Select(l => l.name);
+                    var langs = context.langs.Where(c=>c.code == cbLang.Text).Select(l => l.name);
                     lbLangName.Text = langs.First();
                 }
                 catch (System.Exception ex)
