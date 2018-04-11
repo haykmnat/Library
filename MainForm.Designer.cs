@@ -36,9 +36,18 @@
             this.viewBooks = new System.Windows.Forms.DataGridView();
             this.bntViewBook = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.conMenu = new System.Windows.Forms.ContextMenu();
+            this.bookMenu = new System.Windows.Forms.ContextMenu();
+            this.bookMenuView = new System.Windows.Forms.MenuItem("View");
+            this.bookMenuProcess = new System.Windows.Forms.MenuItem("Process");
             ((System.ComponentModel.ISupportInitialize)(this.viewBooks)).BeginInit();
             this.SuspendLayout();
+            //
+            //bookMenu
+            //
+            bookMenu.MenuItems.Add(bookMenuView);
+            bookMenu.MenuItems.Add(bookMenuProcess);
+            bookMenuView.Click += new System.EventHandler(this.bookMenuView_Click);
+            bookMenuProcess.Click += new System.EventHandler(this.bookMenuProcess_Click);
             // 
             // btnAddBook
             // 
@@ -148,7 +157,9 @@
         private System.Windows.Forms.DataGridView viewBooks;
         private System.Windows.Forms.Button bntViewBook;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ContextMenu conMenu;
+        private System.Windows.Forms.ContextMenu bookMenu;
+        private System.Windows.Forms.MenuItem bookMenuView;
+        private System.Windows.Forms.MenuItem bookMenuProcess;
     }
 }
 

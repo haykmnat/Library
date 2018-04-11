@@ -1,4 +1,7 @@
-﻿namespace Library
+﻿using System.Collections.Generic;
+using System.Data.Linq;
+
+namespace Library
 {
     partial class BookForm
     {
@@ -224,7 +227,7 @@
             // 
             // viewAuthors
             // 
-            this.viewAuthors.BackgroundColor = System.Drawing.Color.CornflowerBlue;
+            this.viewAuthors.BackgroundColor = System.Drawing.Color.Silver;
             this.viewAuthors.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.viewAuthors.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenHorizontal;
             this.viewAuthors.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -503,6 +506,7 @@
             this.btnEdit.TabIndex = 8;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // bntCancel
             // 
@@ -516,12 +520,13 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(260, 453);
+            this.btnDelete.Location = new System.Drawing.Point(341, 455);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(65, 35);
             this.btnDelete.TabIndex = 9;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // nadCount
             // 
@@ -548,7 +553,7 @@
             // 
             // btnDone
             // 
-            this.btnDone.Location = new System.Drawing.Point(331, 454);
+            this.btnDone.Location = new System.Drawing.Point(270, 449);
             this.btnDone.Name = "btnDone";
             this.btnDone.Size = new System.Drawing.Size(65, 35);
             this.btnDone.TabIndex = 13;
@@ -591,7 +596,7 @@
         #endregion
 
         private byte[] imageBytes;
-        private System.Windows.Forms.TabControl tabControl;
+        public System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tab1;
         private System.Windows.Forms.TabPage tab2;
         private System.Windows.Forms.TextBox tbGenre;
@@ -636,6 +641,7 @@
         private System.Windows.Forms.Label lbR;
         private System.Windows.Forms.Label lbLangName;
         private LibContext context;
-        private Book book;
+        public Book book;
+        public System.Linq.IQueryable<Author> authors;
     }
 }
