@@ -223,10 +223,19 @@ namespace Library
             cbRest.Text = book.restriction;
             cbCover.Text = book.coverType;
             tbAbout.Text = book.description;
-            var ms = new MemoryStream(book.cover);
-            pbCover.Image = (Image)new Bitmap(Image.FromStream(ms), pbCover.Size);
-            viewAuthors.DataSource = from a in authors
-                                     select new {Name = a.name, Surname = a.surname, MiddleName = a.middleName };
+            if(book.cover != null)
+            {
+                var ms = new MemoryStream(book?.cover);
+                pbCover.Image = (Image)new Bitmap(Image.FromStream(ms), pbCover.Size);
+            }
+            
+            var auth = from a in authors
+                       select new {Name = a.name, Surname = a.surname, MiddleName = a.middleName };
+            //viewAuthors.Rows.AddRange();
+            foreach (var a in auth)
+            {
+                viewAuthors.Rows.Add(new object[] { a.Name.Trim(), a.Surname.Trim(), a.MiddleName.Trim() });
+            }
         }
 
         private void cbCategory_DropDown(object sender, EventArgs e)
@@ -245,6 +254,25 @@ namespace Library
                     "Original error: " + ex.Message, "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            foreach (Control c in tabControl.Controls)
+            {
+                c.Enabled = true;
+            }
+            btnDelete.Visible = true;
+            btnDone.Visible = true;
+            btnEdit.Visible = false;
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            using(context = new LibContext(LibConnection.GetConnString()))
+            {
+                
             }
         }
     }

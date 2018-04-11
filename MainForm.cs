@@ -73,9 +73,9 @@ namespace Library
             {
                 DataGridViewRow selectedRow = viewBooks.SelectedRows[0];
                 int value = (int)selectedRow.Cells[3].Value;
-                var book = context.books.Where(b => b.bID == value).First();
+                var something = context.books.Where(b => b.bID == value).First();
                 
-                f.book = book;
+                f.book = something;
 
                 f.authors = from a in context.authors
                             where a.bID == (int)selectedRow.Cells[3].Value

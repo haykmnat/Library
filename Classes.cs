@@ -21,37 +21,37 @@ namespace Library
     [Table(Name = "book")]
     public class Book
     {
-        [Column(Name = "bID", CanBeNull = false, IsPrimaryKey = true, IsDbGenerated = true)]
+        [Column(Name = "bID", CanBeNull = false, IsPrimaryKey = true, IsDbGenerated = true, DbType = "int")]
         public int bID;
-        [Column(Name = "ISBN13")]
+        [Column(Name = "ISBN13", DbType = "char(14)")]
         public string ISBN13;
-        [Column(Name = "ISBN10")]
+        [Column(Name = "ISBN10", DbType = "char(11)")]
         public string ISBN10;
-        [Column(Name = "name")]
+        [Column(Name = "name", DbType = "nvarchar(60)")]
         public string name;
-        [Column(Name = "cover")]
+        [Column(Name = "cover", DbType = "varbinary(max)")]
         public byte[] cover;
-        [Column(Name = "coverType")]
+        [Column(Name = "coverType", DbType = "char(10)")]
         public string coverType;
-        [Column(Name = "pubDate")]
+        [Column(Name = "pubDate", DbType = "char(4)")]
         public string pubDate;
-        [Column(Name = "publish")]
+        [Column(Name = "publish", DbType = "nvarchar(40)")]
         public string publish;
-        [Column(Name = "pubCountry")]
+        [Column(Name = "pubCountry", DbType = "char(25)")]
         public string pubCountry;
-        [Column(Name = "department")]
+        [Column(Name = "department", DbType = "char(25)")]
         public string department;
-        [Column(Name = "language")]
+        [Column(Name = "language", DbType = "char(3)")]
         public string language;
-        [Column(Name = "genre")]
+        [Column(Name = "genre", DbType = "nvarchar(50)")]
         public string genre;
-        [Column(Name = "description")]
+        [Column(Name = "description", DbType = "nvarchar(max)")]
         public string description;
-        [Column(Name = "restriction")]
+        [Column(Name = "restriction", DbType = "varchar(30)")]
         public string restriction;
-        [Column(Name = "status")]
+        [Column(Name = "status", DbType = "float")]
         public float status;
-        [Column(Name = "state", CanBeNull = false)]
+        [Column(Name = "state", CanBeNull = false, DbType = "int")]
         public int state;
     }
 
