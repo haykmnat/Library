@@ -81,8 +81,8 @@ namespace Library
                 context.Connection.Open();
                 for (int j = 0; j < nadCount.Value; j ++)
                 {
-                    Book newBook;
-                    fillBook(out newBook);
+                    Book newBook = new Book();
+                    fillBook(newBook);
                     try
                     {
                        
@@ -103,8 +103,7 @@ namespace Library
                                 for (int i = 0; i < viewAuthors.RowCount - 1; i++)
                                 {
                                     Author newAuthor;
-                                    Book_Author newBookAuthor;
-                                    fillAuthor(out newAuthor, i);
+                                    fillAuthor(out newAuthor, i, newBook.bID);
                                     try
                                     {
                                         context.authors.InsertOnSubmit(newAuthor);
@@ -113,16 +112,6 @@ namespace Library
                                     catch (System.Exception ex)
                                     {
                                         throw new Exception($"Error: Could not add author N{i}", ex);
-                                    }
-                                    fillBook_Author(out newBookAuthor, newBook.bookID, newAuthor.authorID);
-                                    try
-                                    {
-                                        context.book_Authors.InsertOnSubmit(newBookAuthor);
-                                        context.SubmitChanges();
-                                    }
-                                    catch (System.Exception ex)
-                                    {
-                                        throw new Exception($"Error: Could not add book and author N{i}", ex); ;
                                     }
                                 }
                             }
@@ -144,44 +133,34 @@ namespace Library
             if (success)
                 this.Close();
         }
-        private void fillBook_Author(out Book_Author bookAuthor, int bID, int aID)
-        {
-            bookAuthor = new Book_Author
-            {
-                bookID = bID,
-                authorID = aID
-            };
-        }
 
-        private void fillAuthor(out Author author, int i)
+        private void fillAuthor(out Author author, int i, int bID)
         {
             author = new Author
             {
                 name = viewAuthors.Rows[i].Cells[0].Value?.ToString(),
                 surname = viewAuthors.Rows[i].Cells[1].Value?.ToString(),
-                middleName = viewAuthors.Rows[i].Cells[2].Value?.ToString()
+                middleName = viewAuthors.Rows[i].Cells[2].Value?.ToString(),
+                bID = bID
             };
         }
 
-        private void fillBook(out Book book)
+        private void fillBook(Book book)
         {
-            book = new Book
-            {
-                name = tbName.Text,
-                ISBN10 = tbISBN10.Text,
-                ISBN13 = tbISBN13.Text,
-                language = cbLang.Text,
-                genre = tbGenre.Text,
-                department = cbCategory.Text,
-                publish = tbPub.Text,
-                pubDate = tbPubDate.Text,
-                pubCountry = tbPubCntry.Text,
-                restriction = cbRest.Text,
-                coverType = cbCover.Text,
-                cover = imageBytes,
-                description = tbAbout.Text,
-                state = 0
-            };
+            book.name = tbName.Text;
+            book.ISBN10 = tbISBN10.Text;
+            book.ISBN13 = tbISBN13.Text;
+            book.language = cbLang.Text;
+            book.genre = tbGenre.Text;
+            book.department = cbCategory.Text;
+            book.publish = tbPub.Text;
+            book.pubDate = tbPubDate.Text;
+            book.pubCountry = tbPubCntry.Text;
+            book.restriction = cbRest.Text;
+            book.coverType = cbCover.Text;
+            book.cover = imageBytes;
+            book.description = tbAbout.Text;
+            book.state = 0;
         }
 
         private void tbName_Enter(object sender, EventArgs e)
@@ -226,6 +205,36 @@ namespace Library
             }
         }
 
+
+        public void fillForm()
+        {
+            tbName.Text = book.name;
+            tbISBN10.Text = book.ISBN10;
+            tbISBN13.Text = book.ISBN13;
+            cbLang.Text = book.language;
+            tbGenre.Text = book.genre;
+            cbCategory.Text = book.department;
+            tbPub.Text = book.publish;
+            tbPubDate.Text = book.pubDate;
+            tbPubCntry.Text = book.pubCountry;
+            cbRest.Text = book.restriction;
+            cbCover.Text = book.coverType;
+            tbAbout.Text = book.description;
+            if(book.cover != null)
+            {
+                var ms = new MemoryStream(book?.cover);
+                pbCover.Image = (Image)new Bitmap(Image.FromStream(ms), pbCover.Size);
+            }
+            
+            var auth = from a in authors
+                       select new {Name = a.name, Surname = a.surname, MiddleName = a.middleName };
+            //viewAuthors.Rows.AddRange();
+            foreach (var a in auth)
+            {
+                viewAuthors.Rows.Add(new object[] { a.Name.Trim(), a.Surname.Trim(), a.MiddleName.Trim() });
+            }
+        }
+
         private void cbCategory_DropDown(object sender, EventArgs e)
         {
             cbCategory.Items.Clear();
@@ -244,5 +253,51 @@ namespace Library
                 }
             }
         }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            foreach (Control c in tabControl.Controls)
+            {
+                c.Enabled = true;
+            }
+            btnDelete.Visible = true;
+            btnDone.Visible = true;
+            btnEdit.Visible = false;
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            using(context = new LibContext(LibConnection.GetConnString()))
+            {
+                context.books.DeleteOnSubmit(book);
+                var auths = context.authors.Where(a => a.bID == book.bID);
+                foreach (var a in auths)
+                {
+                    context.authors.DeleteOnSubmit(a);
+                }
+                context.SubmitChanges();
+            }
+            this.Close();
+        }
+
+        private void btnDone_Click(object sender, EventArgs e)
+        {
+            using(context = new LibContext(LibConnection.GetConnString()))
+            {
+                
+
+                var book1 = context.books.Where(b => b.bID == book.bID).First();
+                fillBook(book1);
+                context.SubmitChanges();
+            }
+            btnDone.Visible = false;
+            btnDelete.Visible = false;
+            btnEdit.Visible = true;
+            foreach (Control c in tabControl.Controls)
+            {
+                c.Enabled = false;
+            }
+        }
+
     }
 }

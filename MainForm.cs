@@ -12,7 +12,7 @@ namespace Library
 {
     public partial class MainForm : Form
     {
-        Library.LibContext context = new LibContext(Library.LibConnection.GetConnString());
+        Library.LibContext context;
 
         public MainForm()
         {
@@ -29,11 +29,7 @@ namespace Library
         {
             var f = new BookFilter();
             f.viewBooks = viewBooks;
-            f.Show();
-
-//             var tabe = context.books.Select(c => new {Name = c.name, Lang = c.language, Date = c.pubDate }).Distinct();
-//             viewBooks.DataSource = tabe;
-//             viewBooks.RowHeadersVisible = false;      
+            f.Show(); 
         }
 
         private void button_Readers_Click(object sender, EventArgs e)
@@ -52,18 +48,50 @@ namespace Library
         {
             if (e.Button == MouseButtons.Right)
             {
-                ContextMenu conMenu = new ContextMenu();
+                viewBooks.ClearSelection();
                 int currentMouseOverRow = viewBooks.HitTest(e.X, e.Y).RowIndex;
 
-                if (currentMouseOverRow >= 0 && viewBooks.Rows[currentMouseOverRow].Selected == true)
+                if (currentMouseOverRow >= 0 )
                 {
-                    conMenu.MenuItems.Add(new MenuItem("View"));
-                    conMenu.MenuItems.Add(new MenuItem("Process"));
+                    viewBooks.Rows[currentMouseOverRow].Selected = true;
                 }
-
-                conMenu.Show(viewBooks, new Point(e.X, e.Y));
+                bookMenu.Show(viewBooks, new Point(e.X, e.Y));
 
             }
+        }
+
+        private void bookMenuView_Click(object sender, EventArgs e)
+        {
+            var f = new BookForm(1);
+           
+            foreach (Control c in f.tabControl.Controls)
+            {
+                c.Enabled = false;
+            }
+
+            using (context = new LibContext(LibConnection.GetConnString()))
+            {
+                DataGridViewRow selectedRow = viewBooks.SelectedRows[0];
+                int value = (int)selectedRow.Cells[3].Value;
+                f.book = context.books.Where(b => b.bID == value).First();
+                
+                f.authors = from a in context.authors
+                            where a.bID == (int)selectedRow.Cells[3].Value
+                            select a;
+                f.fillForm();
+            }
+            f.FormClosed += new FormClosedEventHandler(BookForm_Closed);
+            f.Show();
+        }
+
+        private void BookForm_Closed(object sender, FormClosedEventArgs e)
+        {
+            viewBooks.Update();
+        }
+
+        private void bookMenuProcess_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
