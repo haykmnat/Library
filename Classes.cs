@@ -17,8 +17,18 @@ namespace Library
         public Table<Language> langs;
         public Table<Category> categories;
         public Table<readers> readers_;
+        public Table<Users> users;
     }
-
+    [Table(Name = "users")]
+    public class Users
+    {
+        [Column(Name = "uID", CanBeNull = false, IsPrimaryKey = true, IsDbGenerated = true)]
+        public int userID;
+        [Column(Name = "login", CanBeNull = false)]
+        public string login;
+        [Column(Name = "password", CanBeNull = false)]
+        public string password;
+    }
     [Table(Name = "book")]
     public class Book
     {
