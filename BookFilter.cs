@@ -59,16 +59,13 @@ namespace Library
         {
             using (context = new LibContext(LibConnection.GetConnString()))
             {
-                var author = from ab in context.book_Authors
-                             join a in context.authors on ab.authorID equals a.authorID
-                             select a;
-
-
+                var authors = from a in context.authors
+                              where a.name.ToLower().Contains(tbAuthorName.Text.ToLower()) &&
+                                    a.surname.ToLower().Contains(tbAuthorSur.Text.ToLower())
+                              select a;
                 var books = from b in context.books
-                            //join ab in context.book_Authors on b.bookID equals ab.bookID
-                            join a in (from ab in context.book_Authors
-                                       join a in context.authors on ab.authorID equals a.authorID
-                                       select a) on b.bookID equals a.authorID
+                            join c in authors on b.bID equals c.bID into a1
+                            from a in a1.DefaultIfEmpty()
                             where b.name.ToLower().StartsWith(cbName.Text.ToLower()) &&
                                 b.ISBN10.ToLower().Contains(tbISBN10.Text.ToLower()) &&
                                 b.ISBN13.ToLower().Contains(tbISBN13.Text.ToLower()) &&
@@ -79,16 +76,14 @@ namespace Library
                                 b.pubDate.ToLower().Contains(tbPubDate.Text.ToLower()) &&
                                 b.pubCountry.ToLower().Contains(tbPubCntry.Text.ToLower()) &&
                                 b.coverType.ToLower().Contains(cbCover.Text.ToLower()) &&
-                                a.name.ToLower().Contains(tbAuthorName.Text.ToLower()) &&
-                                a.surname.ToLower().Contains(tbAuthorSur.Text.ToLower()) &&
                                 b.state == 0
-                            select new {Name = b.name, Author = a.name.Trim() + " " + a.surname.Trim(), Genre = b.genre, ID = b.bookID,
+                            select new {Name = b.name, Author = a.name.Trim() + " " + a.surname.Trim(), Genre = b.genre, ID = b.bID,
                                 Language = b.language, Date = b.pubDate };
                 viewBooks.RowHeadersVisible = false;
                 viewBooks.DataSource = books;
                 viewBooks.Columns["ID"].Visible = false;
             }
-            //this.Close();
+            this.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

@@ -103,8 +103,7 @@ namespace Library
                                 for (int i = 0; i < viewAuthors.RowCount - 1; i++)
                                 {
                                     Author newAuthor;
-                                    Book_Author newBookAuthor;
-                                    fillAuthor(out newAuthor, i);
+                                    fillAuthor(out newAuthor, i, newBook.bID);
                                     try
                                     {
                                         context.authors.InsertOnSubmit(newAuthor);
@@ -113,16 +112,6 @@ namespace Library
                                     catch (System.Exception ex)
                                     {
                                         throw new Exception($"Error: Could not add author N{i}", ex);
-                                    }
-                                    fillBook_Author(out newBookAuthor, newBook.bookID, newAuthor.authorID);
-                                    try
-                                    {
-                                        context.book_Authors.InsertOnSubmit(newBookAuthor);
-                                        context.SubmitChanges();
-                                    }
-                                    catch (System.Exception ex)
-                                    {
-                                        throw new Exception($"Error: Could not add book and author N{i}", ex); ;
                                     }
                                 }
                             }
@@ -144,22 +133,15 @@ namespace Library
             if (success)
                 this.Close();
         }
-        private void fillBook_Author(out Book_Author bookAuthor, int bID, int aID)
-        {
-            bookAuthor = new Book_Author
-            {
-                bookID = bID,
-                authorID = aID
-            };
-        }
 
-        private void fillAuthor(out Author author, int i)
+        private void fillAuthor(out Author author, int i, int bID)
         {
             author = new Author
             {
                 name = viewAuthors.Rows[i].Cells[0].Value?.ToString(),
                 surname = viewAuthors.Rows[i].Cells[1].Value?.ToString(),
-                middleName = viewAuthors.Rows[i].Cells[2].Value?.ToString()
+                middleName = viewAuthors.Rows[i].Cells[2].Value?.ToString(),
+                bID = bID
             };
         }
 
@@ -224,6 +206,27 @@ namespace Library
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+
+        public void fillForm()
+        {
+            tbName.Text = book.name;
+            tbISBN10.Text = book.ISBN10;
+            tbISBN13.Text = book.ISBN13;
+            cbLang.Text = book.language;
+            tbGenre.Text = book.genre;
+            cbCategory.Text = book.department;
+            tbPub.Text = book.publish;
+            tbPubDate.Text = book.pubDate;
+            tbPubCntry.Text = book.pubCountry;
+            cbRest.Text = book.restriction;
+            cbCover.Text = book.coverType;
+            tbAbout.Text = book.description;
+            var ms = new MemoryStream(book.cover);
+            pbCover.Image = (Image)new Bitmap(Image.FromStream(ms), pbCover.Size);
+            viewAuthors.DataSource = from a in authors
+                                     select new {Name = a.name, Surname = a.surname, MiddleName = a.middleName };
         }
 
         private void cbCategory_DropDown(object sender, EventArgs e)

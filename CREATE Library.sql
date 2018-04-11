@@ -63,7 +63,7 @@ CREATE TABLE book
 	[language] char(3) null,
 	genre nvarchar(50) null,
 	[state] int not null,
-	[description] nvarchar(500) null,
+	[description] nvarchar(max) null,
 	restriction varchar(30) null, -- expensive, only one example, old and etc.
 	[status] float default(0) null           -- special for Mikayel
 )
@@ -108,14 +108,17 @@ CREATE TABLE category
 )
 go
 
+
+
 IF OBJECT_ID('Library.author', 'U') IS NOT NULL
   DROP TABLE author
 GO
 
 CREATE TABLE author
 (
-	aID int primary key clustered identity(0,1) not null, 
+	aID int primary key clustered identity(1,1) not null, 
 	[name] char( 30) not null, 
+	bID int not null,
 	surname char(30) null,
 	middleName char(30) null,
 	country char(3) null,
@@ -127,19 +130,6 @@ CREATE TABLE author
 )
 go
 
-
-
-if object_id('Library.book_author', 'U') is not null
-  drop table Library.book_author
-go
-
-create table book_author
-(
-	ID int primary key identity(0, 1) not null,
-	bID int not null,
-	aID int not null
-)
-go
 
 
 

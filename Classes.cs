@@ -13,7 +13,6 @@ namespace Library
         }
         public Table<Book> books;
         public Table<Author> authors;
-        public Table<Book_Author> book_Authors;
         public Table<Language> langs;
         public Table<Category> categories;
         public Table<readers> readers_;
@@ -23,7 +22,7 @@ namespace Library
     public class Book
     {
         [Column(Name = "bID", CanBeNull = false, IsPrimaryKey = true, IsDbGenerated = true)]
-        public int bookID;
+        public int bID;
         [Column(Name = "ISBN13")]
         public string ISBN13;
         [Column(Name = "ISBN10")]
@@ -53,7 +52,7 @@ namespace Library
         [Column(Name = "status")]
         public float status;
         [Column(Name = "state", CanBeNull = false)]
-        public float state;
+        public int state;
     }
 
     [Table(Name = "author")]
@@ -63,6 +62,8 @@ namespace Library
         public int authorID;
         [Column(Name = "name")]
         public string name;
+        [Column(Name = "bID")]
+        public int bID;
         [Column(Name = "surname")]
         public string surname;
         [Column(Name = "middleName")]
@@ -79,17 +80,6 @@ namespace Library
         public string language2;
         [Column(Name = "language3")]
         public string language3;
-    }
-
-    [Table(Name = "book_author")]
-    public class Book_Author
-    {
-        [Column(Name = "ID", CanBeNull = false, IsPrimaryKey = true, IsDbGenerated = true)]
-        public int ID;
-        [Column(Name = "bID", CanBeNull = false)]
-        public int bookID;
-        [Column(Name = "aID", CanBeNull = false)]
-        public int authorID;
     }
 
     [Table(Name = "language")]
