@@ -81,8 +81,8 @@ namespace Library
                 context.Connection.Open();
                 for (int j = 0; j < nadCount.Value; j ++)
                 {
-                    Book newBook;
-                    fillBook(out newBook);
+                    Book newBook = new Book();
+                    fillBook(newBook);
                     try
                     {
                        
@@ -145,25 +145,22 @@ namespace Library
             };
         }
 
-        private void fillBook(out Book book)
+        private void fillBook(Book book)
         {
-            book = new Book
-            {
-                name = tbName.Text,
-                ISBN10 = tbISBN10.Text,
-                ISBN13 = tbISBN13.Text,
-                language = cbLang.Text,
-                genre = tbGenre.Text,
-                department = cbCategory.Text,
-                publish = tbPub.Text,
-                pubDate = tbPubDate.Text,
-                pubCountry = tbPubCntry.Text,
-                restriction = cbRest.Text,
-                coverType = cbCover.Text,
-                cover = imageBytes,
-                description = tbAbout.Text,
-                state = 0
-            };
+            book.name = tbName.Text;
+            book.ISBN10 = tbISBN10.Text;
+            book.ISBN13 = tbISBN13.Text;
+            book.language = cbLang.Text;
+            book.genre = tbGenre.Text;
+            book.department = cbCategory.Text;
+            book.publish = tbPub.Text;
+            book.pubDate = tbPubDate.Text;
+            book.pubCountry = tbPubCntry.Text;
+            book.restriction = cbRest.Text;
+            book.coverType = cbCover.Text;
+            book.cover = imageBytes;
+            book.description = tbAbout.Text;
+            book.state = 0;
         }
 
         private void tbName_Enter(object sender, EventArgs e)
@@ -272,8 +269,35 @@ namespace Library
         {
             using(context = new LibContext(LibConnection.GetConnString()))
             {
+                context.books.DeleteOnSubmit(book);
+                var auths = context.authors.Where(a => a.bID == book.bID);
+                foreach (var a in auths)
+                {
+                    context.authors.DeleteOnSubmit(a);
+                }
+                context.SubmitChanges();
+            }
+            this.Close();
+        }
+
+        private void btnDone_Click(object sender, EventArgs e)
+        {
+            using(context = new LibContext(LibConnection.GetConnString()))
+            {
                 
+
+                var book1 = context.books.Where(b => b.bID == book.bID).First();
+                fillBook(book1);
+                context.SubmitChanges();
+            }
+            btnDone.Visible = false;
+            btnDelete.Visible = false;
+            btnEdit.Visible = true;
+            foreach (Control c in tabControl.Controls)
+            {
+                c.Enabled = false;
             }
         }
+
     }
 }

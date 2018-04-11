@@ -73,18 +73,20 @@ namespace Library
             {
                 DataGridViewRow selectedRow = viewBooks.SelectedRows[0];
                 int value = (int)selectedRow.Cells[3].Value;
-                var something = context.books.Where(b => b.bID == value).First();
+                f.book = context.books.Where(b => b.bID == value).First();
                 
-                f.book = something;
-
                 f.authors = from a in context.authors
                             where a.bID == (int)selectedRow.Cells[3].Value
                             select a;
-                //f.authors = authors;
                 f.fillForm();
             }
-
+            f.FormClosed += new FormClosedEventHandler(BookForm_Closed);
             f.Show();
+        }
+
+        private void BookForm_Closed(object sender, FormClosedEventArgs e)
+        {
+            viewBooks.Update();
         }
 
         private void bookMenuProcess_Click(object sender, EventArgs e)
