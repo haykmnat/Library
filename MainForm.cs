@@ -80,8 +80,13 @@ namespace Library
                             select a;
                 f.fillForm();
             }
-
+            f.FormClosed += new FormClosedEventHandler(BookForm_Closed);
             f.Show();
+        }
+
+        private void BookForm_Closed(object sender, FormClosedEventArgs e)
+        {
+            viewBooks.Update();
         }
 
         private void bookMenuProcess_Click(object sender, EventArgs e)
