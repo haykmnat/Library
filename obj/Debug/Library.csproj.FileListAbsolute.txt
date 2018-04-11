@@ -34,3 +34,15 @@ C:\Users\sun_2\Library\obj\Debug\Library.csproj.CoreCompileInputs.cache
 C:\Users\sun_2\Library\obj\Debug\Library.exe
 C:\Users\sun_2\Library\obj\Debug\Library.pdb
 C:\Users\sun_2\Library\obj\Debug\Library.BookFilter.resources
+C:\Users\user\Source\Repos\Library\bin\Debug\Library.exe.config
+C:\Users\user\Source\Repos\Library\obj\Debug\Library.exe
+C:\Users\user\Source\Repos\Library\obj\Debug\Library.pdb
+C:\Users\user\Source\Repos\Library\bin\Debug\Library.exe
+C:\Users\user\Source\Repos\Library\bin\Debug\Library.pdb
+C:\Users\user\Source\Repos\Library\obj\Debug\Library.csprojResolveAssemblyReference.cache
+C:\Users\user\Source\Repos\Library\obj\Debug\Library.BookFilter.resources
+C:\Users\user\Source\Repos\Library\obj\Debug\Library.BookForm.resources
+C:\Users\user\Source\Repos\Library\obj\Debug\Library.MainForm.resources
+C:\Users\user\Source\Repos\Library\obj\Debug\Library.Properties.Resources.resources
+C:\Users\user\Source\Repos\Library\obj\Debug\Library.Readers.resources
+C:\Users\user\Source\Repos\Library\obj\Debug\Library.csproj.GenerateResource.Cache
