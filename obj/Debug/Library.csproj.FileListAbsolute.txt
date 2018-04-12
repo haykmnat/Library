@@ -49,5 +49,4 @@ C:\Users\USER\Source\Repos\Library\obj\Debug\Library.pdb
 C:\Users\USER\Source\Repos\Library\obj\Debug\Library.LoginForm.resources
 C:\Users\sun_2\Library\obj\Debug\Library.LoginForm.resources
 C:\Users\user\Source\Repos\Library\obj\Debug\Library.AddReaders.resources
-C:\Users\USER\Source\Repos\Library\obj\Debug\Library.csproj.CoreCompileInputs.cache
 C:\Users\sun_2\Library\obj\Debug\Library.AddReaders.resources

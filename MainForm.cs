@@ -74,13 +74,13 @@ namespace Library
                 DataGridViewRow selectedRow = viewBooks.SelectedRows[0];
                 int value = (int)selectedRow.Cells[4].Value;
                 f.book = context.books.Where(b => b.bID == value).First();
-                
+
                 f.authors = from a in context.authors
-<<<<<<< HEAD
+
                             where a.bID == value
-=======
+
                             where a.bID == (int)selectedRow.Cells[4].Value
->>>>>>> a52d3996b24c4ad1fa47b4dcc14af009bf3c99c8
+
                             select a;
                 f.fillForm();
             }
