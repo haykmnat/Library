@@ -58,8 +58,6 @@ namespace Library
             reader.phone = tbPhoneNumber.Text;
             reader.openDate = DateTime.Now.ToShortDateString();
 
-
-
         }
 
         private void baddReader_Click(object sender, EventArgs e)
