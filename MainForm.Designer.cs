@@ -30,9 +30,9 @@ namespace Library
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.btnAddBook = new System.Windows.Forms.Button();
             this.viewBooks = new System.Windows.Forms.DataGridView();
@@ -81,6 +81,8 @@ namespace Library
             this.registerProdactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.onlineHelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutLibraryAppToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemEditLang = new System.Windows.Forms.MenuItem();
+            this.menuItemDeleteLang = new System.Windows.Forms.MenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.viewBooks)).BeginInit();
             this.pFirst.SuspendLayout();
             this.pBook.SuspendLayout();
@@ -105,34 +107,34 @@ namespace Library
             // viewBooks
             // 
             this.viewBooks.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.viewBooks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.viewBooks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.viewBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.viewBooks.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.viewBooks.DefaultCellStyle = dataGridViewCellStyle8;
             this.viewBooks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.viewBooks.Location = new System.Drawing.Point(0, 27);
             this.viewBooks.Name = "viewBooks";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.viewBooks.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.viewBooks.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.viewBooks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.viewBooks.Size = new System.Drawing.Size(160, 514);
             this.viewBooks.TabIndex = 10;
@@ -153,13 +155,13 @@ namespace Library
             // 
             // menuItemReaderView
             // 
-            this.menuItemReaderView.Index = 0;
+            this.menuItemReaderView.Index = -1;
             this.menuItemReaderView.Text = "View";
             this.menuItemReaderView.Click += new System.EventHandler(this.menuItemReaderView_Click);
             // 
             // menuItemReaderProcess
             // 
-            this.menuItemReaderProcess.Index = 1;
+            this.menuItemReaderProcess.Index = -1;
             this.menuItemReaderProcess.Text = "Process";
             this.menuItemReaderProcess.Click += new System.EventHandler(this.menuItemReaderProcess_Click);
             // 
@@ -586,6 +588,18 @@ namespace Library
             this.aboutLibraryAppToolStripMenuItem.Size = new System.Drawing.Size(187, 24);
             this.aboutLibraryAppToolStripMenuItem.Text = "About LibraryApp";
             // 
+            // menuItemEditLang
+            // 
+            this.menuItemEditLang.Index = 0;
+            this.menuItemEditLang.Text = "Edit";
+            this.menuItemEditLang.Click += new System.EventHandler(this.menuItemEditLang_Click);
+            // 
+            // menuItemDeleteLang
+            // 
+            this.menuItemDeleteLang.Index = 1;
+            this.menuItemDeleteLang.Text = "Delete";
+            this.menuItemDeleteLang.Click += new System.EventHandler(this.menuItemDeleteLang_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -669,6 +683,8 @@ namespace Library
         private System.Windows.Forms.ToolStripMenuItem aboutLibraryAppToolStripMenuItem;
         private System.Windows.Forms.MenuItem menuItemReaderView;
         private System.Windows.Forms.MenuItem menuItemReaderProcess;
+        private System.Windows.Forms.MenuItem menuItemEditLang;
+        private System.Windows.Forms.MenuItem menuItemDeleteLang;
     }
 }
 

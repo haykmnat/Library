@@ -137,6 +137,12 @@ namespace Library
         {
             pFirst.Visible = false;
             pLang.Visible = true;
+            // 
+            // bookMenu
+            // 
+            this.bookMenu.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.menuItemEditLang,
+            this.menuItemDeleteLang});
         }
 
         private void btnCategory_Click(object sender, EventArgs e)
@@ -217,7 +223,8 @@ namespace Library
         {
             using(context = new LibContext(LibConnection.GetConnString()))
             {
-
+                var langs = context.langs.Select(l => new { Code = l.code, Name = l.name});
+                viewBooks.DataSource = langs;
             }
         }
 
@@ -242,6 +249,7 @@ namespace Library
             pLang.Visible = false;
             pFirst.Visible = true;
             viewBooks.DataSource = null;
+            this.bookMenu.MenuItems.Clear();
         }
 
         private void btnHistory_Click(object sender, EventArgs e)
@@ -269,6 +277,31 @@ namespace Library
         private void menuItemReaderProcess_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void menuItemDeleteLang_Click(object sender, EventArgs e)
+        {
+            using(context = new LibContext(LibConnection.GetConnString()))
+            {
+                var lang = context.langs.Where(l => l.code == viewBooks.SelectedRows[0].Cells[0].Value.ToString().Trim()).First();
+                
+                context.langs.DeleteOnSubmit(lang);
+                context.SubmitChanges();
+            }
+            btnAllLang_Click(sender, e);
+        }
+
+        private void menuItemEditLang_Click(object sender, EventArgs e)
+        {
+            langPanel = new LangPanel(1);
+            pLang.Controls.Add(langPanel);
+            langPanel.Location = new System.Drawing.Point(1, 126);
+            langPanel.Name = "panel1";
+            langPanel.Size = new System.Drawing.Size(211, 257);
+            langPanel.TabIndex = 12;
+            langPanel.tbCode.Text = viewBooks.SelectedRows[0].Cells[0].Value.ToString().Trim();
+            langPanel.tbName.Text = viewBooks.SelectedRows[0].Cells[1].Value.ToString().Trim();
+            langPanel.Visible = true;
         }
     }
 }
