@@ -98,12 +98,12 @@ namespace Library
                                 throw new Exception($"Error: Could not add book\n", ex); ;
                             }
 
-                            if (viewAuthors.RowCount != 1)
+                            if (viewAuthors.Rows[0].Cells[0].Value != null)
                             {
                                 for (int i = 0; i < viewAuthors.RowCount - 1; i++)
                                 {
-                                    Author newAuthor;
-                                    fillAuthor(out newAuthor, i, newBook.bID);
+                                    Author newAuthor = new Author();
+                                    fillAuthor(newAuthor, i, newBook.bID);
                                     try
                                     {
                                         context.authors.InsertOnSubmit(newAuthor);
@@ -134,15 +134,14 @@ namespace Library
                 this.Close();
         }
 
-        private void fillAuthor(out Author author, int i, int bID)
+        private void fillAuthor(Author author, int i, int bID)
         {
-            author = new Author
-            {
-                name = viewAuthors.Rows[i].Cells[0].Value?.ToString(),
-                surname = viewAuthors.Rows[i].Cells[1].Value?.ToString(),
-                middleName = viewAuthors.Rows[i].Cells[2].Value?.ToString(),
-                bID = bID
-            };
+
+            author.name = viewAuthors.Rows[i].Cells[0].Value?.ToString();
+            author.surname = viewAuthors.Rows[i].Cells[1].Value?.ToString();
+            author.middleName = viewAuthors.Rows[i].Cells[2].Value?.ToString();
+            author.bID = bID;
+            
         }
 
         private void fillBook(Book book)
@@ -222,16 +221,16 @@ namespace Library
             tbAbout.Text = book.description;
             if(book.cover != null)
             {
-                var ms = new MemoryStream(book?.cover);
+                var ms = new MemoryStream(book.cover);
                 pbCover.Image = (Image)new Bitmap(Image.FromStream(ms), pbCover.Size);
             }
             
             var auth = from a in authors
-                       select new {Name = a.name, Surname = a.surname, MiddleName = a.middleName };
+                       select a;
             //viewAuthors.Rows.AddRange();
             foreach (var a in auth)
             {
-                viewAuthors.Rows.Add(new object[] { a.Name.Trim(), a.Surname.Trim(), a.MiddleName.Trim() });
+                viewAuthors.Rows.Add(new object[] { a.name?.Trim(), a.surname?.Trim(), a.middleName?.Trim() });
             }
         }
 
@@ -269,7 +268,8 @@ namespace Library
         {
             using(context = new LibContext(LibConnection.GetConnString()))
             {
-                context.books.DeleteOnSubmit(book);
+                var bookDel = context.books.Where(b => b.bID == book.bID).First();
+                context.books.DeleteOnSubmit(bookDel);
                 var auths = context.authors.Where(a => a.bID == book.bID);
                 foreach (var a in auths)
                 {
@@ -284,10 +284,45 @@ namespace Library
         {
             using(context = new LibContext(LibConnection.GetConnString()))
             {
-                
-
                 var book1 = context.books.Where(b => b.bID == book.bID).First();
                 fillBook(book1);
+                var author1 = context.authors.Where(a => a.bID == book.bID);
+                if (viewAuthors.RowCount - 1 >= author1.Count())
+                {
+                    int i = 0;
+                    foreach (var a in author1)
+                    {
+                        fillAuthor(a, i, book.bID);
+                        i++;
+                    }
+                    if (viewAuthors.RowCount > author1.Count())
+                    {
+                        for (int j = i; j < viewAuthors.RowCount -1; j++)
+                        {
+                            Author a = new Author();
+                            fillAuthor(a, j, book.bID);
+                            context.authors.InsertOnSubmit(a);
+                        }
+                    }
+
+                }
+                else
+                {
+                    int i = 0;
+                    foreach (var a in author1)
+                    {
+                        if (i < viewAuthors.RowCount - 1)
+                        {
+                            fillAuthor(a, i, book.bID);
+                        }
+                        else
+                        {
+                            context.authors.DeleteOnSubmit(a);
+                        }
+                        i++;
+                    }
+                }
+                
                 context.SubmitChanges();
             }
             btnDone.Visible = false;

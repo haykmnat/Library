@@ -37,17 +37,11 @@
             this.bntViewBook = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.bookMenu = new System.Windows.Forms.ContextMenu();
-            this.bookMenuView = new System.Windows.Forms.MenuItem("View");
-            this.bookMenuProcess = new System.Windows.Forms.MenuItem("Process");
+            this.bookMenuView = new System.Windows.Forms.MenuItem();
+            this.bookMenuProcess = new System.Windows.Forms.MenuItem();
+            this.lbRefresh = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.viewBooks)).BeginInit();
             this.SuspendLayout();
-            //
-            //bookMenu
-            //
-            bookMenu.MenuItems.Add(bookMenuView);
-            bookMenu.MenuItems.Add(bookMenuProcess);
-            bookMenuView.Click += new System.EventHandler(this.bookMenuView_Click);
-            bookMenuProcess.Click += new System.EventHandler(this.bookMenuProcess_Click);
             // 
             // btnAddBook
             // 
@@ -124,11 +118,41 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button_Readers_Click);
             // 
+            // bookMenu
+            // 
+            this.bookMenu.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.bookMenuView,
+            this.bookMenuProcess});
+            // 
+            // bookMenuView
+            // 
+            this.bookMenuView.Index = 0;
+            this.bookMenuView.Text = "View";
+            this.bookMenuView.Click += new System.EventHandler(this.bookMenuView_Click);
+            // 
+            // bookMenuProcess
+            // 
+            this.bookMenuProcess.Index = 1;
+            this.bookMenuProcess.Text = "Process";
+            this.bookMenuProcess.Click += new System.EventHandler(this.bookMenuProcess_Click);
+            // 
+            // lbRefresh
+            // 
+            this.lbRefresh.AutoSize = true;
+            this.lbRefresh.Location = new System.Drawing.Point(499, 159);
+            this.lbRefresh.Name = "lbRefresh";
+            this.lbRefresh.Size = new System.Drawing.Size(44, 13);
+            this.lbRefresh.TabIndex = 13;
+            this.lbRefresh.TabStop = true;
+            this.lbRefresh.Text = "Refresh";
+            this.lbRefresh.Click += new System.EventHandler(this.lbRefresh_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(667, 466);
+            this.Controls.Add(this.lbRefresh);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.bntViewBook);
             this.Controls.Add(this.viewBooks);
@@ -160,6 +184,7 @@
         private System.Windows.Forms.ContextMenu bookMenu;
         private System.Windows.Forms.MenuItem bookMenuView;
         private System.Windows.Forms.MenuItem bookMenuProcess;
+        private System.Windows.Forms.LinkLabel lbRefresh;
     }
 }
 

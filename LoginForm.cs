@@ -18,17 +18,13 @@ namespace Library
             InitializeComponent();
         }
 
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            var table = context.users.Select(c => new { Login = c.login, Password = c.password });
+            var table = context.users.Where(k => k.login == textBox1.Text.Trim() && k.password == textBox2.Text.Trim());
             if (!table.Any())
             {
-                MessageBox.Show("Incorrect username or password");
+                //MessageBox.Show("Incorrect username or password");
+                lbErrLogin.Text = "Incorrect username or password";
             }
             else
             {
@@ -38,6 +34,26 @@ namespace Library
                 this.Close();
             }
             
+        }
+
+        private void textBox1_Enter(object sender, EventArgs e)
+        {
+            lbErrLogin.Text = "";
+        }
+
+        private void textBox2_Enter(object sender, EventArgs e)
+        {
+            lbErrLogin.Text = "";
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            lbErrLogin.Text = "";
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            lbErrLogin.Text = "";
         }
     }
 }
