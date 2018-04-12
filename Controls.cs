@@ -38,7 +38,7 @@ namespace Library
             if(i == 0)
             {
                 btnDelete.Visible = false;
-                btnDone.Visible = false;
+                btnDone.Visible = true;
                 btnEdit.Visible = false;
             }
 
@@ -119,7 +119,7 @@ namespace Library
             // btnDone
             // 
             this.btnDone.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDone.Location = new System.Drawing.Point(16, 141);
+            this.btnDone.Location = new System.Drawing.Point(75, 141);
             this.btnDone.Name = "btnDone";
             this.btnDone.Size = new System.Drawing.Size(53, 31);
             this.btnDone.TabIndex = 5;
@@ -210,7 +210,7 @@ namespace Library
 
         private void btnDone_Click(object sender, EventArgs e)
         {
-
+            this.Visible = false;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -264,7 +264,7 @@ namespace Library
             if (i == 0)
             {
                 btnDelete.Visible = false;
-                btnDone.Visible = false;
+                btnDone.Visible = true;
                 btnEdit.Visible = false;
             }
 
@@ -345,7 +345,7 @@ namespace Library
             // btnDone
             // 
             this.btnDone.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDone.Location = new System.Drawing.Point(16, 141);
+            this.btnDone.Location = new System.Drawing.Point(75, 141);
             this.btnDone.Name = "btnDone";
             this.btnDone.Size = new System.Drawing.Size(53, 31);
             this.btnDone.TabIndex = 5;
@@ -436,7 +436,7 @@ namespace Library
 
         private void btnDone_Click(object sender, EventArgs e)
         {
-
+            this.Visible = false;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

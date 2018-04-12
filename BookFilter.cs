@@ -77,8 +77,8 @@ namespace Library
                                 b.pubCountry.ToLower().Contains(tbPubCntry.Text.ToLower()) &&
                                 b.coverType.ToLower().Contains(cbCover.Text.ToLower()) &&
                                 b.state == 0
-                            select new {Name = b.name, Author = a.name.Trim() + " " + a.surname.Trim(), Genre = b.genre, ID = b.bID,
-                                Language = b.language, Date = b.pubDate };
+                            select new {Name = b.name, Author = a.name.Trim() + " " + a.surname.Trim(), Category = b.department, Genre = b.genre, ID = b.bID,
+                                Language = b.language, Country = b.pubCountry,Publishing = b.publish, Date = b.pubDate };
                 viewBooks.RowHeadersVisible = false;
                 viewBooks.DataSource = books;
                 viewBooks.Columns["ID"].Visible = false;
