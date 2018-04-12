@@ -1,5 +1,6 @@
 ﻿
-IF EXISTS (SELECT * 
+
+iF EXISTS (SELECT * 
 	   FROM   master..sysdatabases 
 	   WHERE  name = N'Library')
 	DROP DATABASE Library	
@@ -180,16 +181,16 @@ go
 
 create table readers
 (
-	[rID] int primary key clustered not null, 
-	[name] nvarchar( 30) not null, 
-	surname nvarchar( 30) not null,
-	middleName nvarchar( 30) null,
-	passport char(10) not null,
-	birthDate date not null,
-	openDate date not null, --reader card open date
-	closeDate date null,		--reader card close date
-	[address] nvarchar( 50) not null, 
-	phone varchar( 40) not null -- i mean comma seperated phone numbers listr
+	[rID] int primary key clustered Identity(0,1) not null, 
+	[name] varchar( 50) not null, 
+	surname varchar( 50) not null,
+	middleName varchar( 50) null,
+	passport varchar(50) not null,
+	birthDate varchar(50) not null,
+	openDate varchar(50) not null, --reader card open date
+	closeDate varchar(50) null,--reader card close date
+	[address] varchar(50) not null, 
+	phone varchar(50) not null -- i mean comma separated phone numbers listr
 )
 go
 
@@ -250,3 +251,8 @@ create table [parameters]
 	[value] int null
 )
 go
+
+
+
+INSERT INTO users(uID,login,password)
+VALUES(1,'admin','admin')
