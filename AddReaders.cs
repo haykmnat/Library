@@ -17,35 +17,7 @@ namespace Library
             InitializeComponent();
         }
 
-        private void AddReaders_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox7_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void fillReader(readers reader)
         {
@@ -117,6 +89,34 @@ namespace Library
                     Close();
                 }
             }
+        }
+        
+
+        private void tbName_Enter(object sender, EventArgs e)
+        {
+                tbName.BackColor = Color.White;
+        }
+
+        private void tbSurname_Enter(object sender, EventArgs e)
+        {
+            tbSurname.BackColor = Color.White;
+        }
+        
+
+        private void tbPassport_Enter(object sender, EventArgs e)
+        {
+            tbPassport.BackColor = Color.White;
+        }
+
+        private void tbAddress_Enter(object sender, EventArgs e)
+        {
+
+            tbAddress.BackColor = Color.White;
+        }
+
+        private void tbPhoneNumber_Enter(object sender, EventArgs e)
+        {
+            tbPhoneNumber.BackColor = Color.White;
         }
     }
 }

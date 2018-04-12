@@ -72,11 +72,11 @@ namespace Library
             using (context = new LibContext(LibConnection.GetConnString()))
             {
                 DataGridViewRow selectedRow = viewBooks.SelectedRows[0];
-                int value = (int)selectedRow.Cells[3].Value;
+                int value = (int)selectedRow.Cells[4].Value;
                 f.book = context.books.Where(b => b.bID == value).First();
                 
                 f.authors = from a in context.authors
-                            where a.bID == (int)selectedRow.Cells[3].Value
+                            where a.bID == value
                             select a;
                 f.fillForm();
             }
