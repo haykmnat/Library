@@ -17,6 +17,7 @@ namespace Library
         public Table<Category> categories;
         public Table<readers> readers_;
         public Table<Users> users;
+       
     }
     [Table(Name = "users")]
     public class Users
@@ -114,7 +115,7 @@ namespace Library
     public class readers
     {
 
-        [Column(Name = "rID", CanBeNull = false, IsPrimaryKey = true)]
+        [Column(Name = "rID", CanBeNull = false, IsPrimaryKey = true,IsDbGenerated =true)]
         public int rID;
 
         [Column(Name = "name", CanBeNull = false, IsPrimaryKey = false)]
@@ -130,13 +131,13 @@ namespace Library
         public string passport;
 
         [Column(Name = "birthDate", CanBeNull = false, IsPrimaryKey = false)]
-        public DateTime birthDate;
+        public string birthDate;
 
         [Column(Name = "openDate", CanBeNull = false, IsPrimaryKey = false)]
-        public DateTime openDate;
+        public string openDate;
 
         [Column(Name = "closeDate", CanBeNull = true, IsPrimaryKey = false)]
-        public DateTime closeDate;
+        public string closeDate;
 
         [Column(Name = "address", CanBeNull = false, IsPrimaryKey = false)]
         public string address;
