@@ -288,6 +288,7 @@ namespace Library
             this.btnBook.Text = "Book";
             this.btnBook.UseVisualStyleBackColor = false;
             this.btnBook.Click += new System.EventHandler(this.btnBook_Click);
+
             // 
             // pBook
             // 
