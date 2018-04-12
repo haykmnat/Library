@@ -103,5 +103,139 @@ namespace Library
             f.viewBooks = viewBooks;
             f.btnSearch_Click(sender, e);
         }
+
+        private void btnBook_Click(object sender, EventArgs e)
+        {
+            pFirst.Visible = false;
+            pBook.Visible = true;
+        }
+
+        private void btnReader_Click(object sender, EventArgs e)
+        {
+            pFirst.Visible = false;
+            pReader.Visible = true;
+        }
+
+        private void btnUsers_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLang_Click(object sender, EventArgs e)
+        {
+            pFirst.Visible = false;
+            pLang.Visible = true;
+        }
+
+        private void btnCategory_Click(object sender, EventArgs e)
+        {
+            pFirst.Visible = false;
+            pCategory.Visible = true;
+        }
+
+        private void btnAllBooks_Click(object sender, EventArgs e)
+        {
+            var f = new BookFilter();
+            f.viewBooks = viewBooks;
+            f.btnSearch_Click(sender, e);
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            pBook.Visible = false;
+            pFirst.Visible = true;
+            viewBooks.DataSource = null;
+        }
+
+        private void btnAllReaders_Click(object sender, EventArgs e)
+        {
+            using (context = new LibContext(LibConnection.GetConnString()))
+            {
+                var tabe = context.readers_.Select(c => new
+                {
+                    Name = c.name,
+                    Middle_Name = c.middleName,
+                    Surname = c.surname,
+                    PassportSeria = c.passport,
+                    OpenDate = c.openDate,
+                    CloseDate = c.closeDate
+                }).Distinct();
+                viewBooks.DataSource = tabe;
+                viewBooks.RowHeadersVisible = false;
+            }
+        }
+
+        private void btnAddReader_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBackR_Click(object sender, EventArgs e)
+        {
+            pReader.Visible = false;
+            pFirst.Visible = true;
+            viewBooks.DataSource = null;
+        }
+
+        private void btnAddLang_Click(object sender, EventArgs e)
+        {
+            categoryPanel = new CategoryPanel(0);
+            pCategory.Controls.Add(categoryPanel);
+            categoryPanel.Location = new System.Drawing.Point(1, 126);
+            categoryPanel.Name = "panel1";
+            categoryPanel.Size = new System.Drawing.Size(211, 257);
+            categoryPanel.TabIndex = 12;
+            categoryPanel.Visible = true;
+        }
+
+        private void btnBackC_Click(object sender, EventArgs e)
+        {
+            pCategory.Visible = false;
+            pFirst.Visible = true;
+            viewBooks.DataSource = null;
+        }
+
+        private void btnAllLang_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPanelAddLang_Click(object sender, EventArgs e)
+        {
+            langPanel = new LangPanel(0);
+            pLang.Controls.Add(langPanel);
+            langPanel.Location = new System.Drawing.Point(1, 126);
+            langPanel.Name = "panel1";
+            langPanel.Size = new System.Drawing.Size(211, 257);
+            langPanel.TabIndex = 12;
+            langPanel.Visible = true;
+        }
+
+        private void btnCategorys_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnBackLang_Click(object sender, EventArgs e)
+        {
+            pLang.Visible = false;
+            pFirst.Visible = true;
+            viewBooks.DataSource = null;
+        }
+
+        private void btnHistory_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnStaff_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
