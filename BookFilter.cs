@@ -55,7 +55,7 @@ namespace Library
             }
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        public void btnSearch_Click(object sender, EventArgs e)
         {
             using (context = new LibContext(LibConnection.GetConnString()))
             {
