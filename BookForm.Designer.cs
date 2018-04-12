@@ -500,7 +500,7 @@ namespace Library
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(13, 455);
+            this.btnEdit.Location = new System.Drawing.Point(13, 453);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(65, 35);
             this.btnEdit.TabIndex = 8;
@@ -520,7 +520,7 @@ namespace Library
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(83, 453);
+            this.btnDelete.Location = new System.Drawing.Point(84, 453);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(65, 35);
             this.btnDelete.TabIndex = 9;
@@ -553,7 +553,7 @@ namespace Library
             // 
             // btnDone
             // 
-            this.btnDone.Location = new System.Drawing.Point(12, 454);
+            this.btnDone.Location = new System.Drawing.Point(13, 453);
             this.btnDone.Name = "btnDone";
             this.btnDone.Size = new System.Drawing.Size(65, 35);
             this.btnDone.TabIndex = 13;

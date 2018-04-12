@@ -21,7 +21,7 @@ namespace Library
 
         private void btnAddBook_Click(object sender, EventArgs e)
         {
-            BookForm form = new BookForm(0); //for add
+            BookForm form = new BookForm(0);
             form.Show();
         }
 
@@ -82,16 +82,26 @@ namespace Library
             }
             f.FormClosed += new FormClosedEventHandler(BookForm_Closed);
             f.Show();
+            
         }
 
         private void BookForm_Closed(object sender, FormClosedEventArgs e)
         {
-            viewBooks.Update();
+            var f = new BookFilter();
+            f.viewBooks = viewBooks;
+            f.btnSearch_Click(sender, e);
         }
 
         private void bookMenuProcess_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void lbRefresh_Click(object sender, EventArgs e)
+        {
+            var f = new BookFilter();
+            f.viewBooks = viewBooks;
+            f.btnSearch_Click(sender, e);
         }
     }
 }
