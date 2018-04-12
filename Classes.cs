@@ -129,7 +129,7 @@ namespace Library
         [Column(Name = "passport", CanBeNull = false, IsPrimaryKey = false)]
         public string passport;
 
-        [Column(Name = "middleName", CanBeNull = false, IsPrimaryKey = false)]
+        [Column(Name = "birthDate", CanBeNull = false, IsPrimaryKey = false)]
         public DateTime birthDate;
 
         [Column(Name = "openDate", CanBeNull = false, IsPrimaryKey = false)]
