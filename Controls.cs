@@ -42,6 +42,13 @@ namespace Library
                 btnEdit.Visible = false;
             }
 
+            if (i == 1)
+            {
+                btnDelete.Visible = false;
+                btnDone.Visible = false;
+                btnEdit.Visible = true;
+            }
+
             // 
             // btnDelete
             // 
@@ -446,7 +453,7 @@ namespace Library
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void tbCode_Enter(object sender, EventArgs e)

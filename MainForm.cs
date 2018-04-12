@@ -108,12 +108,24 @@ namespace Library
         {
             pFirst.Visible = false;
             pBook.Visible = true;
+            // 
+            // bookMenu
+            // 
+            this.bookMenu.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.bookMenuView,
+            this.bookMenuProcess});
         }
 
         private void btnReader_Click(object sender, EventArgs e)
         {
             pFirst.Visible = false;
             pReader.Visible = true;
+            // 
+            // bookMenu
+            // 
+            this.bookMenu.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.menuItemReaderView,
+            this.menuItemReaderProcess});
         }
 
         private void btnUsers_Click(object sender, EventArgs e)
@@ -125,6 +137,11 @@ namespace Library
         {
             pFirst.Visible = false;
             pLang.Visible = true;
+            // 
+            // bookMenu
+            // 
+            this.bookMenu.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.menuItemDeleteLang});
         }
 
         private void btnCategory_Click(object sender, EventArgs e)
@@ -145,6 +162,8 @@ namespace Library
             pBook.Visible = false;
             pFirst.Visible = true;
             viewBooks.DataSource = null;
+            
+            this.bookMenu.MenuItems.Clear();
         }
 
         private void btnAllReaders_Click(object sender, EventArgs e)
@@ -176,6 +195,10 @@ namespace Library
             pReader.Visible = false;
             pFirst.Visible = true;
             viewBooks.DataSource = null;
+            // 
+            // bookMenu
+            // 
+            this.bookMenu.MenuItems.Clear();
         }
 
         private void btnAddLang_Click(object sender, EventArgs e)
@@ -198,7 +221,11 @@ namespace Library
 
         private void btnAllLang_Click(object sender, EventArgs e)
         {
-
+            using(context = new LibContext(LibConnection.GetConnString()))
+            {
+                var langs = context.langs.Select(l => new { Code = l.code, Name = l.name});
+                viewBooks.DataSource = langs;
+            }
         }
 
         private void btnPanelAddLang_Click(object sender, EventArgs e)
@@ -222,6 +249,7 @@ namespace Library
             pLang.Visible = false;
             pFirst.Visible = true;
             viewBooks.DataSource = null;
+            this.bookMenu.MenuItems.Clear();
         }
 
         private void btnHistory_Click(object sender, EventArgs e)
@@ -238,5 +266,31 @@ namespace Library
         {
             Application.Exit();
         }
+
+       
+
+        private void menuItemReaderView_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuItemReaderProcess_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuItemDeleteLang_Click(object sender, EventArgs e)
+        {
+            using(context = new LibContext(LibConnection.GetConnString()))
+            {
+                var lang = context.langs.Where(l => l.code == viewBooks.SelectedRows[0].Cells[0].Value.ToString().Trim()).First();
+                
+                context.langs.DeleteOnSubmit(lang);
+                context.SubmitChanges();
+            }
+            btnAllLang_Click(sender, e);
+        }
+
+        
     }
 }
