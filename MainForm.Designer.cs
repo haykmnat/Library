@@ -592,7 +592,7 @@ namespace Library
             // 
             this.menuItemEditLang.Index = 0;
             this.menuItemEditLang.Text = "Edit";
-            this.menuItemEditLang.Click += new System.EventHandler(this.menuItemEditLang_Click);
+          //  this.menuItemEditLang.Click += new System.EventHandler(this.menuItemEditLang_Click);
             // 
             // menuItemDeleteLang
             // 
