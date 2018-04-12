@@ -151,7 +151,7 @@ namespace Library
             this.bntViewBook.Text = "Search Books";
             this.bntViewBook.UseVisualStyleBackColor = false;
             this.bntViewBook.Click += new System.EventHandler(this.bntViewBook_Click);
-
+            
             // 
             // menuItemReaderView
             // 
@@ -592,7 +592,10 @@ namespace Library
             // 
             this.menuItemEditLang.Index = 0;
             this.menuItemEditLang.Text = "Edit";
-            //  this.menuItemEditLang.Click += new System.EventHandler(this.menuItemEditLang_Click);
+<<<<<<< HEAD
+=======
+          //  this.menuItemEditLang.Click += new System.EventHandler(this.menuItemEditLang_Click);
+>>>>>>> a52d3996b24c4ad1fa47b4dcc14af009bf3c99c8
             // 
             // menuItemDeleteLang
             // 
