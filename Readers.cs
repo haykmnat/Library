@@ -22,7 +22,9 @@ namespace Library
 
         private void button1_Add_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("OMAE WA MOU SHINDEIRU \n\n NANI???");
+            AddReaders a = new AddReaders();
+            a.ShowDialog();
+
         }
 
         private void button3_all_readers_Click(object sender, EventArgs e)
