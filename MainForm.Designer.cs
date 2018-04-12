@@ -593,7 +593,10 @@ namespace Library
             // 
             this.menuItemEditLang.Index = 0;
             this.menuItemEditLang.Text = "Edit";
+<<<<<<< HEAD
+=======
           //  this.menuItemEditLang.Click += new System.EventHandler(this.menuItemEditLang_Click);
+>>>>>>> a52d3996b24c4ad1fa47b4dcc14af009bf3c99c8
             // 
             // menuItemDeleteLang
             // 

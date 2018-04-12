@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddReaders));
             this.tbName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,144 +48,174 @@
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(99, 32);
+            this.tbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbName.Location = new System.Drawing.Point(152, 39);
+            this.tbName.Margin = new System.Windows.Forms.Padding(4);
             this.tbName.Multiline = true;
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(126, 26);
+            this.tbName.Size = new System.Drawing.Size(243, 31);
             this.tbName.TabIndex = 0;
+            this.tbName.Enter += new System.EventHandler(this.tbName_Enter);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 35);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(84, 43);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(45, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "Name";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 82);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(64, 101);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 13);
+            this.label2.Size = new System.Drawing.Size(65, 17);
             this.label2.TabIndex = 2;
             this.label2.Text = "Surname";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // tbMiddlename
             // 
-            this.tbMiddlename.Location = new System.Drawing.Point(99, 125);
+            this.tbMiddlename.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMiddlename.Location = new System.Drawing.Point(152, 154);
+            this.tbMiddlename.Margin = new System.Windows.Forms.Padding(4);
             this.tbMiddlename.Multiline = true;
             this.tbMiddlename.Name = "tbMiddlename";
-            this.tbMiddlename.Size = new System.Drawing.Size(126, 26);
+            this.tbMiddlename.Size = new System.Drawing.Size(243, 31);
             this.tbMiddlename.TabIndex = 3;
             // 
             // tbPassport
             // 
-            this.tbPassport.Location = new System.Drawing.Point(99, 170);
+            this.tbPassport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPassport.Location = new System.Drawing.Point(152, 209);
+            this.tbPassport.Margin = new System.Windows.Forms.Padding(4);
             this.tbPassport.Multiline = true;
             this.tbPassport.Name = "tbPassport";
-            this.tbPassport.Size = new System.Drawing.Size(126, 26);
+            this.tbPassport.Size = new System.Drawing.Size(243, 31);
             this.tbPassport.TabIndex = 4;
+            this.tbPassport.Enter += new System.EventHandler(this.tbPassport_Enter);
             // 
             // tbAddress
             // 
-            this.tbAddress.Location = new System.Drawing.Point(99, 253);
+            this.tbAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbAddress.Location = new System.Drawing.Point(152, 315);
+            this.tbAddress.Margin = new System.Windows.Forms.Padding(4);
             this.tbAddress.Multiline = true;
             this.tbAddress.Name = "tbAddress";
-            this.tbAddress.Size = new System.Drawing.Size(126, 26);
+            this.tbAddress.Size = new System.Drawing.Size(243, 31);
             this.tbAddress.TabIndex = 6;
+            this.tbAddress.Enter += new System.EventHandler(this.tbAddress_Enter);
             // 
             // tbPhoneNumber
             // 
-            this.tbPhoneNumber.Location = new System.Drawing.Point(99, 300);
+            this.tbPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPhoneNumber.Location = new System.Drawing.Point(152, 369);
+            this.tbPhoneNumber.Margin = new System.Windows.Forms.Padding(4);
             this.tbPhoneNumber.Multiline = true;
             this.tbPhoneNumber.Name = "tbPhoneNumber";
-            this.tbPhoneNumber.Size = new System.Drawing.Size(126, 26);
+            this.tbPhoneNumber.Size = new System.Drawing.Size(243, 31);
             this.tbPhoneNumber.TabIndex = 7;
+            this.tbPhoneNumber.Enter += new System.EventHandler(this.tbPhoneNumber_Enter);
             // 
             // tbSurname
             // 
-            this.tbSurname.Location = new System.Drawing.Point(99, 79);
+            this.tbSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbSurname.Location = new System.Drawing.Point(152, 97);
+            this.tbSurname.Margin = new System.Windows.Forms.Padding(4);
             this.tbSurname.Multiline = true;
             this.tbSurname.Name = "tbSurname";
-            this.tbSurname.Size = new System.Drawing.Size(126, 26);
+            this.tbSurname.Size = new System.Drawing.Size(243, 31);
             this.tbSurname.TabIndex = 8;
-            this.tbSurname.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
+            this.tbSurname.Enter += new System.EventHandler(this.tbSurname_Enter);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(23, 128);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(45, 158);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 13);
+            this.label3.Size = new System.Drawing.Size(84, 17);
             this.label3.TabIndex = 9;
             this.label3.Text = "Middlename";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(24, 253);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(69, 319);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 13);
+            this.label4.Size = new System.Drawing.Size(60, 17);
             this.label4.TabIndex = 10;
             this.label4.Text = "Address";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(24, 173);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(65, 213);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 13);
+            this.label5.Size = new System.Drawing.Size(64, 17);
             this.label5.TabIndex = 11;
             this.label5.Text = "Passport";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(23, 215);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(58, 270);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 13);
+            this.label6.Size = new System.Drawing.Size(71, 17);
             this.label6.TabIndex = 12;
             this.label6.Text = "Birth Date";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 303);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(26, 373);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(78, 13);
+            this.label7.Size = new System.Drawing.Size(103, 17);
             this.label7.TabIndex = 13;
             this.label7.Text = "Phone Number";
             // 
             // dateBirthDate
             // 
+            this.dateBirthDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateBirthDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateBirthDate.Location = new System.Drawing.Point(99, 215);
+            this.dateBirthDate.Location = new System.Drawing.Point(152, 265);
+            this.dateBirthDate.Margin = new System.Windows.Forms.Padding(4);
             this.dateBirthDate.Name = "dateBirthDate";
-            this.dateBirthDate.Size = new System.Drawing.Size(126, 20);
+            this.dateBirthDate.Size = new System.Drawing.Size(243, 26);
             this.dateBirthDate.TabIndex = 14;
             this.dateBirthDate.Value = new System.DateTime(2018, 4, 12, 22, 55, 0, 0);
             // 
             // baddReader
             // 
-            this.baddReader.Location = new System.Drawing.Point(260, 348);
+            this.baddReader.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.baddReader.Location = new System.Drawing.Point(275, 427);
+            this.baddReader.Margin = new System.Windows.Forms.Padding(4);
             this.baddReader.Name = "baddReader";
-            this.baddReader.Size = new System.Drawing.Size(75, 34);
+            this.baddReader.Size = new System.Drawing.Size(128, 38);
             this.baddReader.TabIndex = 15;
-            this.baddReader.Text = "AddReader";
+            this.baddReader.Text = "Add Reader";
             this.baddReader.UseVisualStyleBackColor = true;
             this.baddReader.Click += new System.EventHandler(this.baddReader_Click);
             // 
             // AddReaders
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(346, 395);
+            this.ClientSize = new System.Drawing.Size(461, 486);
             this.Controls.Add(this.baddReader);
             this.Controls.Add(this.dateBirthDate);
             this.Controls.Add(this.label7);
@@ -200,9 +231,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbName);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddReaders";
-            this.Text = "AddReaders";
-            this.Load += new System.EventHandler(this.AddReaders_Load);
+            this.Text = "Add Readers";
             this.ResumeLayout(false);
             this.PerformLayout();
 
