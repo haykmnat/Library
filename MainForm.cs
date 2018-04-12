@@ -186,7 +186,8 @@ namespace Library
 
         private void btnAddReader_Click(object sender, EventArgs e)
         {
-
+            AddReaders aa = new AddReaders();
+            aa.ShowDialog();
         }
 
         private void btnBackR_Click(object sender, EventArgs e)

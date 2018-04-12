@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddReaders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddReaders.Designer.cs">
+      <DependentUpon>AddReaders.cs</DependentUpon>
+    </Compile>
     <Compile Include="BookFilter.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     <Compile Include="Readers.Designer.cs">
       <DependentUpon>Readers.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddReaders.resx">
+      <DependentUpon>AddReaders.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BookFilter.resx">
       <DependentUpon>BookFilter.cs</DependentUpon>
     </EmbeddedResource>
