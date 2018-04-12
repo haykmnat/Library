@@ -30,11 +30,16 @@ namespace Library
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.btnAddBook = new System.Windows.Forms.Button();
             this.viewBooks = new System.Windows.Forms.DataGridView();
             this.bntViewBook = new System.Windows.Forms.Button();
             this.bookMenu = new System.Windows.Forms.ContextMenu();
+            this.menuItemReaderView = new System.Windows.Forms.MenuItem();
+            this.menuItemReaderProcess = new System.Windows.Forms.MenuItem();
             this.bookMenuView = new System.Windows.Forms.MenuItem();
             this.bookMenuProcess = new System.Windows.Forms.MenuItem();
             this.lbRefresh = new System.Windows.Forms.LinkLabel();
@@ -100,12 +105,36 @@ namespace Library
             // viewBooks
             // 
             this.viewBooks.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.viewBooks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.viewBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.viewBooks.DefaultCellStyle = dataGridViewCellStyle5;
             this.viewBooks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.viewBooks.Location = new System.Drawing.Point(0, 27);
             this.viewBooks.Name = "viewBooks";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.viewBooks.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.viewBooks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.viewBooks.Size = new System.Drawing.Size(0, 535);
+            this.viewBooks.Size = new System.Drawing.Size(160, 514);
             this.viewBooks.TabIndex = 10;
             this.viewBooks.MouseClick += new System.Windows.Forms.MouseEventHandler(this.viewBooks_MouseClick);
             // 
@@ -120,22 +149,29 @@ namespace Library
             this.bntViewBook.Text = "Search Books";
             this.bntViewBook.UseVisualStyleBackColor = false;
             this.bntViewBook.Click += new System.EventHandler(this.bntViewBook_Click);
+            
             // 
-            // bookMenu
+            // menuItemReaderView
             // 
-            this.bookMenu.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.bookMenuView,
-            this.bookMenuProcess});
+            this.menuItemReaderView.Index = 0;
+            this.menuItemReaderView.Text = "View";
+            this.menuItemReaderView.Click += new System.EventHandler(this.menuItemReaderView_Click);
+            // 
+            // menuItemReaderProcess
+            // 
+            this.menuItemReaderProcess.Index = 1;
+            this.menuItemReaderProcess.Text = "Process";
+            this.menuItemReaderProcess.Click += new System.EventHandler(this.menuItemReaderProcess_Click);
             // 
             // bookMenuView
             // 
-            this.bookMenuView.Index = 0;
+            this.bookMenuView.Index = -1;
             this.bookMenuView.Text = "View";
             this.bookMenuView.Click += new System.EventHandler(this.bookMenuView_Click);
             // 
             // bookMenuProcess
             // 
-            this.bookMenuProcess.Index = 1;
+            this.bookMenuProcess.Index = -1;
             this.bookMenuProcess.Text = "Process";
             this.bookMenuProcess.Click += new System.EventHandler(this.bookMenuProcess_Click);
             // 
@@ -162,9 +198,9 @@ namespace Library
             this.pFirst.Controls.Add(this.btnReader);
             this.pFirst.Controls.Add(this.btnBook);
             this.pFirst.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pFirst.Location = new System.Drawing.Point(753, 27);
+            this.pFirst.Location = new System.Drawing.Point(1024, 27);
             this.pFirst.Name = "pFirst";
-            this.pFirst.Size = new System.Drawing.Size(216, 535);
+            this.pFirst.Size = new System.Drawing.Size(216, 514);
             this.pFirst.TabIndex = 14;
             // 
             // btnHistory
@@ -261,9 +297,9 @@ namespace Library
             this.pBook.Controls.Add(this.btnAddBook);
             this.pBook.Controls.Add(this.lbRefresh);
             this.pBook.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pBook.Location = new System.Drawing.Point(537, 27);
+            this.pBook.Location = new System.Drawing.Point(808, 27);
             this.pBook.Name = "pBook";
-            this.pBook.Size = new System.Drawing.Size(216, 535);
+            this.pBook.Size = new System.Drawing.Size(216, 514);
             this.pBook.TabIndex = 15;
             this.pBook.Visible = false;
             // 
@@ -299,9 +335,9 @@ namespace Library
             this.pCategory.Controls.Add(this.btnCategorys);
             this.pCategory.Controls.Add(this.btnBackC);
             this.pCategory.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pCategory.Location = new System.Drawing.Point(105, 27);
+            this.pCategory.Location = new System.Drawing.Point(376, 27);
             this.pCategory.Name = "pCategory";
-            this.pCategory.Size = new System.Drawing.Size(216, 535);
+            this.pCategory.Size = new System.Drawing.Size(216, 514);
             this.pCategory.TabIndex = 17;
             this.pCategory.Visible = false;
             // 
@@ -348,9 +384,9 @@ namespace Library
             this.pReader.Controls.Add(this.btnBackR);
             this.pReader.Controls.Add(this.btnAddReader);
             this.pReader.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pReader.Location = new System.Drawing.Point(-111, 27);
+            this.pReader.Location = new System.Drawing.Point(160, 27);
             this.pReader.Name = "pReader";
-            this.pReader.Size = new System.Drawing.Size(216, 535);
+            this.pReader.Size = new System.Drawing.Size(216, 514);
             this.pReader.TabIndex = 16;
             this.pReader.Visible = false;
             // 
@@ -406,9 +442,9 @@ namespace Library
             this.pLang.Controls.Add(this.btnAllLang);
             this.pLang.Controls.Add(this.btnBackLang);
             this.pLang.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pLang.Location = new System.Drawing.Point(321, 27);
+            this.pLang.Location = new System.Drawing.Point(592, 27);
             this.pLang.Name = "pLang";
-            this.pLang.Size = new System.Drawing.Size(216, 535);
+            this.pLang.Size = new System.Drawing.Size(216, 514);
             this.pLang.TabIndex = 18;
             this.pLang.Visible = false;
             // 
@@ -457,7 +493,7 @@ namespace Library
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(969, 27);
+            this.menuStrip1.Size = new System.Drawing.Size(1240, 27);
             this.menuStrip1.TabIndex = 20;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -475,25 +511,25 @@ namespace Library
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(112, 24);
             this.newToolStripMenuItem.Text = "New";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(112, 24);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(112, 24);
             this.closeToolStripMenuItem.Text = "Close";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(112, 24);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -554,7 +590,7 @@ namespace Library
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(969, 562);
+            this.ClientSize = new System.Drawing.Size(1240, 541);
             this.Controls.Add(this.viewBooks);
             this.Controls.Add(this.pReader);
             this.Controls.Add(this.pCategory);
@@ -631,6 +667,8 @@ namespace Library
         private System.Windows.Forms.ToolStripMenuItem registerProdactToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem onlineHelpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutLibraryAppToolStripMenuItem;
+        private System.Windows.Forms.MenuItem menuItemReaderView;
+        private System.Windows.Forms.MenuItem menuItemReaderProcess;
     }
 }
 

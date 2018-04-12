@@ -108,12 +108,24 @@ namespace Library
         {
             pFirst.Visible = false;
             pBook.Visible = true;
+            // 
+            // bookMenu
+            // 
+            this.bookMenu.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.bookMenuView,
+            this.bookMenuProcess});
         }
 
         private void btnReader_Click(object sender, EventArgs e)
         {
             pFirst.Visible = false;
             pReader.Visible = true;
+            // 
+            // bookMenu
+            // 
+            this.bookMenu.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.menuItemReaderView,
+            this.menuItemReaderProcess});
         }
 
         private void btnUsers_Click(object sender, EventArgs e)
@@ -145,6 +157,8 @@ namespace Library
             pBook.Visible = false;
             pFirst.Visible = true;
             viewBooks.DataSource = null;
+            
+            this.bookMenu.MenuItems.Clear();
         }
 
         private void btnAllReaders_Click(object sender, EventArgs e)
@@ -175,6 +189,10 @@ namespace Library
             pReader.Visible = false;
             pFirst.Visible = true;
             viewBooks.DataSource = null;
+            // 
+            // bookMenu
+            // 
+            this.bookMenu.MenuItems.Clear();
         }
 
         private void btnAddLang_Click(object sender, EventArgs e)
@@ -197,7 +215,10 @@ namespace Library
 
         private void btnAllLang_Click(object sender, EventArgs e)
         {
+            using(context = new LibContext(LibConnection.GetConnString()))
+            {
 
+            }
         }
 
         private void btnPanelAddLang_Click(object sender, EventArgs e)
@@ -236,6 +257,18 @@ namespace Library
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+       
+
+        private void menuItemReaderView_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuItemReaderProcess_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
