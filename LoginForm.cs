@@ -31,7 +31,6 @@ namespace Library
                 MainForm a = new MainForm();
                 this.Hide();
                 a.ShowDialog();
-
                 this.Close();
 
             }

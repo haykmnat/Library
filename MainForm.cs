@@ -17,6 +17,22 @@ namespace Library
         public MainForm()
         {
             InitializeComponent();
+            using (context = new LibContext(LibConnection.GetConnString()))
+            {
+                Random rand = new Random();
+
+                int temp = rand.Next()%10+1;
+                var quote = from b in context.quotes_
+                            where b.QID == temp
+                            select b.quote;
+                string a = quote.FirstOrDefault();
+                label1.Text = a;
+                
+
+
+
+            }
+
         }
 
         private void btnAddBook_Click(object sender, EventArgs e)
@@ -72,7 +88,7 @@ namespace Library
             using (context = new LibContext(LibConnection.GetConnString()))
             {
                 DataGridViewRow selectedRow = viewBooks.SelectedRows[0];
-                int value = (int)selectedRow.Cells[3].Value;
+                int value = (int)selectedRow.Cells[4].Value;
                 f.book = context.books.Where(b => b.bID == value).First();
 
                 f.authors = from a in context.authors

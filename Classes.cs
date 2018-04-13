@@ -17,6 +17,7 @@ namespace Library
         public Table<Category> categories;
         public Table<readers> readers_;
         public Table<Users> users;
+        public Table<Quotes> quotes_;
        
     }
     [Table(Name = "users")]
@@ -157,5 +158,15 @@ namespace Library
         [address] nvarchar( 50) not null, 
         phone varchar( 40) not null -- i mean comma seperated phone numbers listr
          */
+    }
+
+    [Table(Name = "Quotes")]
+    public class Quotes
+    {
+        [Column(Name = "QID", CanBeNull = false, IsPrimaryKey = true, IsDbGenerated = true)]
+        public int QID;
+        [Column(Name = "quote", CanBeNull = false)]
+        public string quote;
+        
     }
 }

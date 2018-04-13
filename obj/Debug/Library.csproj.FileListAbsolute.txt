@@ -37,7 +37,6 @@ C:\Users\sun_2\Library\obj\Debug\Library.BookFilter.resources
 C:\Users\USER\Source\Repos\Library\bin\Debug\Library.exe.config
 C:\Users\USER\Source\Repos\Library\bin\Debug\Library.exe
 C:\Users\USER\Source\Repos\Library\bin\Debug\Library.pdb
-C:\Users\USER\Source\Repos\Library\obj\Debug\Library.csprojResolveAssemblyReference.cache
 C:\Users\USER\Source\Repos\Library\obj\Debug\Library.BookFilter.resources
 C:\Users\USER\Source\Repos\Library\obj\Debug\Library.BookForm.resources
 C:\Users\USER\Source\Repos\Library\obj\Debug\Library.MainForm.resources
@@ -50,3 +49,4 @@ C:\Users\USER\Source\Repos\Library\obj\Debug\Library.LoginForm.resources
 C:\Users\sun_2\Library\obj\Debug\Library.LoginForm.resources
 C:\Users\user\Source\Repos\Library\obj\Debug\Library.AddReaders.resources
 C:\Users\sun_2\Library\obj\Debug\Library.AddReaders.resources
+C:\Users\user\Source\Repos\Library\obj\Debug\Library.csprojResolveAssemblyReference.cache

@@ -33,6 +33,7 @@ namespace Library
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.btnAddBook = new System.Windows.Forms.Button();
             this.viewBooks = new System.Windows.Forms.DataGridView();
             this.bntViewBook = new System.Windows.Forms.Button();
@@ -43,6 +44,8 @@ namespace Library
             this.bookMenuProcess = new System.Windows.Forms.MenuItem();
             this.lbRefresh = new System.Windows.Forms.LinkLabel();
             this.pFirst = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lquote = new System.Windows.Forms.Label();
             this.btnHistory = new System.Windows.Forms.Button();
             this.btnCategory = new System.Windows.Forms.Button();
             this.btnLang = new System.Windows.Forms.Button();
@@ -82,7 +85,6 @@ namespace Library
             this.aboutLibraryAppToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemEditLang = new System.Windows.Forms.MenuItem();
             this.menuItemDeleteLang = new System.Windows.Forms.MenuItem();
-            this.tbquote = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.viewBooks)).BeginInit();
             this.pFirst.SuspendLayout();
             this.pBook.SuspendLayout();
@@ -191,7 +193,8 @@ namespace Library
             // 
             this.pFirst.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.pFirst.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pFirst.Controls.Add(this.tbquote);
+            this.pFirst.Controls.Add(this.label1);
+            this.pFirst.Controls.Add(this.lquote);
             this.pFirst.Controls.Add(this.btnHistory);
             this.pFirst.Controls.Add(this.btnCategory);
             this.pFirst.Controls.Add(this.btnLang);
@@ -204,6 +207,26 @@ namespace Library
             this.pFirst.Name = "pFirst";
             this.pFirst.Size = new System.Drawing.Size(216, 514);
             this.pFirst.TabIndex = 14;
+            // 
+            // label1
+            // 
+            this.label1.AllowDrop = true;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Forte", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(5, 345);
+            this.label1.MaximumSize = new System.Drawing.Size(200, 100);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 16);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "label1";
+            // 
+            // lquote
+            // 
+            this.lquote.AutoSize = true;
+            this.lquote.Location = new System.Drawing.Point(49, 310);
+            this.lquote.Name = "lquote";
+            this.lquote.Size = new System.Drawing.Size(0, 13);
+            this.lquote.TabIndex = 7;
             // 
             // btnHistory
             // 
@@ -320,6 +343,8 @@ namespace Library
             // btnBack
             // 
             this.btnBack.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.btnBack.BackgroundImage = global::Library.Properties.Resources.back;
+            this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.Location = new System.Drawing.Point(0, 0);
             this.btnBack.Name = "btnBack";
@@ -367,6 +392,8 @@ namespace Library
             // btnBackC
             // 
             this.btnBackC.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.btnBackC.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBackC.BackgroundImage")));
+            this.btnBackC.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnBackC.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBackC.Location = new System.Drawing.Point(0, 0);
             this.btnBackC.Name = "btnBackC";
@@ -414,6 +441,8 @@ namespace Library
             // btnBackR
             // 
             this.btnBackR.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.btnBackR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBackR.BackgroundImage")));
+            this.btnBackR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnBackR.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBackR.Location = new System.Drawing.Point(0, 0);
             this.btnBackR.Name = "btnBackR";
@@ -472,6 +501,8 @@ namespace Library
             // btnBackLang
             // 
             this.btnBackLang.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.btnBackLang.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBackLang.BackgroundImage")));
+            this.btnBackLang.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnBackLang.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBackLang.Location = new System.Drawing.Point(0, 0);
             this.btnBackLang.Name = "btnBackLang";
@@ -509,25 +540,25 @@ namespace Library
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(112, 24);
             this.newToolStripMenuItem.Text = "New";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(112, 24);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(112, 24);
             this.closeToolStripMenuItem.Text = "Close";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(112, 24);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -594,14 +625,6 @@ namespace Library
             this.menuItemDeleteLang.Index = -1;
             this.menuItemDeleteLang.Text = "Delete";
             this.menuItemDeleteLang.Click += new System.EventHandler(this.menuItemDeleteLang_Click);
-            // 
-            // tbquote
-            // 
-            this.tbquote.Location = new System.Drawing.Point(5, 343);
-            this.tbquote.Name = "tbquote";
-            this.tbquote.Size = new System.Drawing.Size(198, 20);
-            this.tbquote.TabIndex = 7;
-            this.tbquote.Text = "aa";
             // 
             // MainForm
             // 
@@ -688,7 +711,8 @@ namespace Library
         private System.Windows.Forms.MenuItem menuItemReaderProcess;
         private System.Windows.Forms.MenuItem menuItemEditLang;
         private System.Windows.Forms.MenuItem menuItemDeleteLang;
-        private System.Windows.Forms.TextBox tbquote;
+        private System.Windows.Forms.Label lquote;
+        private System.Windows.Forms.Label label1;
     }
 }
 
