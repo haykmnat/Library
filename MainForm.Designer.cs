@@ -30,10 +30,9 @@ namespace Library
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnAddBook = new System.Windows.Forms.Button();
             this.viewBooks = new System.Windows.Forms.DataGridView();
             this.bntViewBook = new System.Windows.Forms.Button();
@@ -83,6 +82,7 @@ namespace Library
             this.aboutLibraryAppToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemEditLang = new System.Windows.Forms.MenuItem();
             this.menuItemDeleteLang = new System.Windows.Forms.MenuItem();
+            this.tbquote = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.viewBooks)).BeginInit();
             this.pFirst.SuspendLayout();
             this.pBook.SuspendLayout();
@@ -107,34 +107,34 @@ namespace Library
             // viewBooks
             // 
             this.viewBooks.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.viewBooks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.viewBooks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.viewBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.viewBooks.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.viewBooks.DefaultCellStyle = dataGridViewCellStyle2;
             this.viewBooks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.viewBooks.Location = new System.Drawing.Point(0, 27);
             this.viewBooks.Name = "viewBooks";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.viewBooks.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.viewBooks.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.viewBooks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.viewBooks.Size = new System.Drawing.Size(160, 514);
             this.viewBooks.TabIndex = 10;
@@ -151,7 +151,6 @@ namespace Library
             this.bntViewBook.Text = "Search Books";
             this.bntViewBook.UseVisualStyleBackColor = false;
             this.bntViewBook.Click += new System.EventHandler(this.bntViewBook_Click);
-
             // 
             // menuItemReaderView
             // 
@@ -192,6 +191,7 @@ namespace Library
             // 
             this.pFirst.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.pFirst.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pFirst.Controls.Add(this.tbquote);
             this.pFirst.Controls.Add(this.btnHistory);
             this.pFirst.Controls.Add(this.btnCategory);
             this.pFirst.Controls.Add(this.btnLang);
@@ -288,7 +288,6 @@ namespace Library
             this.btnBook.Text = "Book";
             this.btnBook.UseVisualStyleBackColor = false;
             this.btnBook.Click += new System.EventHandler(this.btnBook_Click);
-
             // 
             // pBook
             // 
@@ -322,7 +321,6 @@ namespace Library
             // 
             this.btnBack.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Image = ((System.Drawing.Image)(resources.GetObject("btnBack.Image")));
             this.btnBack.Location = new System.Drawing.Point(0, 0);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(216, 35);
@@ -370,7 +368,6 @@ namespace Library
             // 
             this.btnBackC.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.btnBackC.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBackC.Image = ((System.Drawing.Image)(resources.GetObject("btnBackC.Image")));
             this.btnBackC.Location = new System.Drawing.Point(0, 0);
             this.btnBackC.Name = "btnBackC";
             this.btnBackC.Size = new System.Drawing.Size(216, 35);
@@ -418,7 +415,6 @@ namespace Library
             // 
             this.btnBackR.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.btnBackR.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBackR.Image = ((System.Drawing.Image)(resources.GetObject("btnBackR.Image")));
             this.btnBackR.Location = new System.Drawing.Point(0, 0);
             this.btnBackR.Name = "btnBackR";
             this.btnBackR.Size = new System.Drawing.Size(216, 35);
@@ -477,7 +473,6 @@ namespace Library
             // 
             this.btnBackLang.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.btnBackLang.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBackLang.Image = ((System.Drawing.Image)(resources.GetObject("btnBackLang.Image")));
             this.btnBackLang.Location = new System.Drawing.Point(0, 0);
             this.btnBackLang.Name = "btnBackLang";
             this.btnBackLang.Size = new System.Drawing.Size(216, 35);
@@ -514,25 +509,25 @@ namespace Library
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(112, 24);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.newToolStripMenuItem.Text = "New";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(112, 24);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(112, 24);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.closeToolStripMenuItem.Text = "Close";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(112, 24);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -591,15 +586,22 @@ namespace Library
             // 
             // menuItemEditLang
             // 
-            this.menuItemEditLang.Index = 0;
+            this.menuItemEditLang.Index = -1;
             this.menuItemEditLang.Text = "Edit";
-            //  this.menuItemEditLang.Click += new System.EventHandler(this.menuItemEditLang_Click);
             // 
             // menuItemDeleteLang
             // 
-            this.menuItemDeleteLang.Index = 1;
+            this.menuItemDeleteLang.Index = -1;
             this.menuItemDeleteLang.Text = "Delete";
             this.menuItemDeleteLang.Click += new System.EventHandler(this.menuItemDeleteLang_Click);
+            // 
+            // tbquote
+            // 
+            this.tbquote.Location = new System.Drawing.Point(5, 343);
+            this.tbquote.Name = "tbquote";
+            this.tbquote.Size = new System.Drawing.Size(198, 20);
+            this.tbquote.TabIndex = 7;
+            this.tbquote.Text = "aa";
             // 
             // MainForm
             // 
@@ -613,12 +615,12 @@ namespace Library
             this.Controls.Add(this.pBook);
             this.Controls.Add(this.pFirst);
             this.Controls.Add(this.menuStrip1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "Lib";
             ((System.ComponentModel.ISupportInitialize)(this.viewBooks)).EndInit();
             this.pFirst.ResumeLayout(false);
+            this.pFirst.PerformLayout();
             this.pBook.ResumeLayout(false);
             this.pBook.PerformLayout();
             this.pCategory.ResumeLayout(false);
@@ -686,6 +688,7 @@ namespace Library
         private System.Windows.Forms.MenuItem menuItemReaderProcess;
         private System.Windows.Forms.MenuItem menuItemEditLang;
         private System.Windows.Forms.MenuItem menuItemDeleteLang;
+        private System.Windows.Forms.TextBox tbquote;
     }
 }
 

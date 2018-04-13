@@ -31,9 +31,11 @@ namespace Library
                 MainForm a = new MainForm();
                 this.Hide();
                 a.ShowDialog();
+
                 this.Close();
+
             }
-            
+
         }
 
         private void textBox1_Enter(object sender, EventArgs e)
